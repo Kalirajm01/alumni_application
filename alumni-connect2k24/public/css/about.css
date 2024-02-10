@@ -121,18 +121,24 @@ body {
 .user-dropdown:hover .user-dropdown-content {
     display: block;
 }
+
+.container{
+  margin-left: 5%;
+  margin-right: 5%;
+}
   h2 {
-    color: red;
-    font-family: verdana;
-    font-size: 160%;
+    color: black;
+    font-size: 34px;
+    font-weight: bold;
+    margin-left: 45%;
+    text-decoration: underline;
+    text-decoration-color: #007bff;
   }
   p {
     color: black;
-    font-family: Times new roman;
     font-size: 110%;
   }
   ul {
-    font-family: times new roman;
     font-size: 110%;
   }
   
