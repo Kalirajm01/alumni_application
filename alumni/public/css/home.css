@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  nav {
+    background-color: skyblue;
+    color: #fff;
+    padding: 10px;
+    display: flex; /* Make the navigation bar a flex container */
+    align-items: left; /* Center items vertically in the flex container */
+  }
+  
+  .logo img {
+    max-height: 40px; /* Adjust the max-height as needed */
+    margin-right: 10px; /* Add some space between the logo and the links */
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0;
+    display: flex; 
+    text-align: right;
+  }
+  
+  .nav-links li {
+    margin-top: 10px;
+    margin-left: 20px; /* Add space between each link */
+  }
+
+  .signup{
+    margin-left: 20px;
+    margin-top: 10px;
+    height: fit-content;
+  }
+  .cont{
+    display: flex;
+    margin-left: 1000px;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+  }

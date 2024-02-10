@@ -1,0 +1,118 @@
+body{
+    font-family: DM Sans;
+}
+.container{
+    padding-top: 100px;
+}
+.title{
+    color: black;
+}
+
+.title-jobs-lists{
+     width: 45%;
+     float:left;
+     font-size: 34px;
+     font-weight: 700;
+     text-align: start;
+     padding-left: 5%;
+}
+
+
+
+.title-jobs-lists1{
+
+     width: 40%; 
+     float:right;
+     font-size: 24px;
+     font-weight: 400;
+     text-align: end;
+     padding-right: 10%;
+     padding-top: 15px;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     
+}
+.lists{
+    padding-top: 120px;
+    align-items: center;
+}
+.left-list {
+    float: left;
+    padding: 10px;
+    width: 550px;
+    height: 350px;
+    background: #D9D9D9; 
+    border-radius: 20px; 
+    border: 5px #0F5CBF solid;
+    margin: 80px;
+}  
+  .lists:after {
+    content: "";
+    clear: both;
+  }
+.jobs{
+    width: fit-content;
+}
+
+.button{
+    width: fit-content;
+    padding-top: 290px;
+    padding-left: 420px;
+}
+
+.button1{
+     width: 120px; 
+     height: 50px; 
+     background: #0F5CBF; 
+     border-radius: 20px;
+     color: white;
+     top: 100px;
+     bottom: 0;   
+    
+}
+
+@media only screen and (max-width:1500px) and (min-width:1300px){
+    .left-list{
+        margin: 30%;
+        margin-top: 25px;
+        margin-bottom: 0px;
+    }
+    
+}
+
+@media only screen and (max-width: 1300px)and (min-width:240px){
+    .left-list {
+        margin: 20%;
+        margin-top: 25px;
+        margin-bottom: 0px;
+      }   
+}
+
+
+/*@media only screen and (max-width: 240px) and (min-width: 100px){
+    .title-jobs-lists{
+        width: 40%;
+        float:left;
+        font-size: 34px;
+        font-weight: 700;
+        text-align: start;
+        padding-left: 10%;
+   }
+   
+   
+   
+   .title-jobs-lists1{
+   
+        width: 35%; 
+        float:right;
+        font-size: 24px;
+        font-weight: 400;
+        text-align: end;
+        padding-right: 15%;
+        padding-top: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        
+   }
+
+}*/

@@ -1,0 +1,240 @@
+body{
+    font-family: DM Sans;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #007bff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; 
+    padding: 0 20px; 
+}
+
+.logo-text {
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin-left: 38%;
+    margin-right: 20px;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 10px;
+    display: block;
+    font-size: medium;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #0056b3; 
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    color: white;
+    padding: 14px 10px; 
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.user-dropdown {
+    position: relative;
+    margin-left: 20px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 60px; 
+    right: 0; 
+}
+
+.user-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.user-dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+
+.container{
+    /* padding-top: 100px; */
+}
+.title{
+    color: black;
+}
+
+.title-jobs-lists{
+     width: 45%;
+     float:left;
+     font-size: 34px;
+     font-weight: 700;
+     text-align: start;
+     padding-left: 5%;
+}
+
+
+
+.title-jobs-lists1{
+
+     width: 40%; 
+     float:right;
+     font-size: 24px;
+     font-weight: 400;
+     text-align: end;
+     padding-right: 10%;
+     padding-top: 15px;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     
+}
+.lists{
+    padding-top: 120px;
+    align-items: center;
+}
+.left-list {
+    float: left;
+    padding: 10px;
+    width: 550px;
+    height: 350px;
+    background: #D9D9D9; 
+    border-radius: 20px; 
+    border: 5px #0F5CBF solid;
+    margin: 80px;
+}  
+  .lists:after {
+    content: "";
+    clear: both;
+  }
+.jobs{
+    width: fit-content;
+}
+
+.button{
+    width: fit-content;
+    padding-top: 290px;
+    padding-left: 420px;
+}
+
+.button1{
+     width: 120px; 
+     height: 50px; 
+     background: #0F5CBF; 
+     border-radius: 20px;
+     color: white;
+     top: 100px;
+     bottom: 0;   
+    
+}
+
+@media only screen and (max-width:1500px) and (min-width:1300px){
+    .left-list{
+        margin: 30%;
+        margin-top: 25px;
+        margin-bottom: 0px;
+    }
+    
+}
+
+@media only screen and (max-width: 1300px)and (min-width:240px){
+    .left-list {
+        margin: 20%;
+        margin-top: 25px;
+        margin-bottom: 0px;
+      }   
+}
+
+
+/*@media only screen and (max-width: 240px) and (min-width: 100px){
+    .title-jobs-lists{
+        width: 40%;
+        float:left;
+        font-size: 34px;
+        font-weight: 700;
+        text-align: start;
+        padding-left: 10%;
+   }
+   
+   
+   
+   .title-jobs-lists1{
+   
+        width: 35%; 
+        float:right;
+        font-size: 24px;
+        font-weight: 400;
+        text-align: end;
+        padding-right: 15%;
+        padding-top: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        
+   }
+
+}*/

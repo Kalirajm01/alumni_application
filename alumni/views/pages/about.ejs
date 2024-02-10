@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About College</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header" id="myHeader">
+  <h2>My Header</h2>
+</div>
+
+  <main class="container">
+    <section class="about-section">
+      <h2>About PSG Institute of Technology and Applied Research (PSG iTech)</h2>
+
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="/public/img/unnamed.jpg" alt="slider" style="width:100%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="/public/img/unnamed.jpg" alt="slider" style="width:100%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="/public/img/unnamed.jpg" alt="slider" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+      <p>PSG iTech, the latest initiative of PSG and Sons’ Charities, aims to realize its objective of enhancing youth empowerment through technical education. This institute caters to various engineering disciplines, focusing on learning, industry engagement of students, innovative and inclusive pedagogy, and ethics.</p>
+
+      <p>PSG Institute of Technology and Applied Research aims at effective transfer of knowledge, pursuit of truth and moulding the students to become ideal citizens of the country. Within a short span of time, the Institution has emerged to be one of the most preferred institutions for the engineering aspirants in Tamilnadu.</p>
+
+      <p>PSG Institute of Technology and Applied Research, started in the year 2014, is an AICTE approved institution and affiliated to Anna University, Chennai. This institution is equipped with various Centres of Excellence such as Innovation Centre, NI Graphical System Design Centre, Keysight RF circuit & System Design Lab, Festo Lab, NEXMOO Mobile & IoT Centre of Excellence, CISCO Network Academy and eYantra. PSGiTech aims to achieve excellence in education and research and nurture engineers with ethics, who will face global challenges to serve industry and society.</p>
+    </section>
+
+    <section class="mission">
+      <h2>Vision of the College</h2>
+      <p>To achieve excellence in education and research, and nurture engineers with</p>
+      <p>ethics, who will face global challenges to serve industry and society.</p>
+    </section>
+    
+    <section class="mission">
+       <h2>Mission of the college</h2>
+       <ul>
+         <li>To facilitate active learning and vocational training.</li>
+         <li>To encourage and promote questioning spirit and 'can-do' entrepreneurial attitude.</li>
+         <li>To foster industry - institute collaboration.</li>
+         <li>To ignite passion for creative work and selfless service towards a sustainable world.</li>
+         <li>To provide intellectually stimulating environment, conducive for research.</li>
+       </ul> 
+    </section>
+
+  </main>
+
+</body>
+</html>
+
+<style>
+  * {box-sizing: border-box}
+  .header {
+    padding: 10px 16px;
+    background: #FFFFFF;
+    color: #000000;
+  }
+  
+  h2 {
+    color: red;
+    font-family: verdana;
+    font-size: 160%;
+  }
+  p {
+    color: black;
+    font-family: Times new roman;
+    font-size: 110%;
+  }
+  ul {
+    font-family: times new roman;
+    font-size: 110%;
+  }
+  
+  .top-container {
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .sticky + .content {
+    padding-top: 102px;
+  }
+  
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+  
+  </style>
+
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+  </script>

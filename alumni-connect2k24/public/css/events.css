@@ -1,0 +1,66 @@
+    body {
+    margin: 40px 50px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading {
+    color: #000;
+    font-family: sans-serif;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: auto;
+}
+
+hr {
+    width: 63px;
+    height: 4px;
+    background-color: #0F5CBF;
+    margin: 0 ;
+}
+
+.back {
+    color: #0F5CBF;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 10px; 
+    margin-right: 0;
+    display: block;
+}
+.event, .cap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.eventimg
+{
+    width: 711px;
+    height: 730px;
+    flex-shrink: 0;
+
+}
+.caption{
+    color: #000;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 62px;
+    margin-bottom: 5%;
+}
+.venueimg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

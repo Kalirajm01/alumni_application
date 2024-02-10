@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- Option 1: Include in HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <title>Alumni Connect</title>
+    <style>
+        /* Option 2: Import via CSS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #0077b5;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+
+
+        .alumni-card {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+        .banner-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0; /* Rounded corners, adjust as needed */
+        }
+        .profile img {
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .alumni-details {
+            flex: 1;
+            position: relative; /* Ensure details appear above the banner image */
+            z-index: 1; /* Keep details above the banner image */
+            padding: 10px;
+        }
+
+        .alumni-name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .alumni-position {
+            color: #555;
+        }
+
+      
+        .recently-connected {
+            max-width: 300px;
+            justify-content: center;
+            margin-left: 20px;
+            /* Adjust margin as needed */
+        }
+
+        .recently-connected-item {
+            margin-bottom: 20px;
+        }
+
+        .recently-connected-item img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .side-page{
+            justify-content: center;
+            
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+            border-radius: 5px;
+        }
+        .card{
+            padding: 20px;
+        }
+        .profile{
+            position: relative;
+        }
+        h2 {
+            border-bottom: 2px solid #0077b5; /* Blue color line with some thickness */
+            padding-bottom: 5px; /* Adjust as needed */
+            width: 25%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Latest members</h1>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="main-content pt-5">
+                    <div class="container">
+                        <div class="alumni-card card">
+                            <img class="banner-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXcXcJz-FcbHbYb7TIRtYVD2LtMKPGagp7Sw&usqp=CAU" alt="Banner Image">
+                            <div class="profile">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAAAMFBMVEXk5ueutLeqsbTr7e3n6eqxt7q4vcDW2drh4+SnrrHGyszc3+DJzc/Z3N27wMPS1deF7xLCAAAEF0lEQVR4nO2c25LjKAxAMRY2N8P//+1ix5PeziYOICwxtZynrn46pRISYBEhBoPBYDAYDAaDwWAwGGQDB9wWX9kVtVujTfjo9OM/fQJi83aRxsgDY6bFRten7yz8oqScfiGlChFmbrdXQNhX0x9jL7qKLzj/yXXHTF734ztHdeF6+C5rJ7ogwrXqA9uFLmzfAvsnvB1kA8QpSzatNsWeDUk2H7nx6kI0BbaTYY1uoWxiZZRdC12nSWk2W5dXDf6NVFy5AKFYNuky1V3wpUn70I0curDVuCYWltStyYMjuBy5sFbKpqpLH1xYqm1loA4urFVL7NTdqG3rQ0ufueDqXRPK0dpalC1xzdWYRNjXGaVsdWd46lLaCo8KbSq5kdK2to89Y0tachVONkF4f6MRreEMLp2swDSy05buQAnYRUZacZG94YCu+c5LA1uyZTbjS8JEV8JmvOywHbb0ti1WGV1NwG5qJsp6CxZv6+k2YX9V5xUOv6shPEc22DH+VbtxRfk1FbvMJOEiExCxp0jKuyVwyFRQhLICe+iVllQWPCq0kvi7mUbJUl/m45ovZUU40BhbYldUcEmL7Un9fTPtBeOD6isQSXq/+KTuVoH2pvkJbHU7MaaRiqpcMCyfeQ/K+y/XJ/QdXbq5kYFvmqK4AZO33BeKxj+kYh5ozJ1dOyPLPRCW/6GPN2f/kLdjkJ0MMqZT2vdskN0MiQrQwVz7Gsufsj/Mbvk8fClV6Mk1AXMM6l2ApVSWedjyHSBcXMzvjY40Zomur6nxH0Cs9thHqqMlL3bt1fQEZtDbmnA6/clt84X9yct80vHzl91Mb9FbG5aDEIK1MW66K2cArd3qrUpLyvx3le3/Cj5uTrO/2UlhczEFczKX3UFKk2qujSunMMBm0+K/ekXySzlVihAFx6OdlKRruI7oe2ejvCPubHtdfdu5cjAy+I0sJWDW9mJXkBPglMU0viC2Bl8i963O/Vc2KQW+bQ6z2TP4zvjCvAZUCrwglzvfybmQWa3yfdVNVzegP74lxGCWO9Jhjrgh1o+k42XrdABoMFT1mbaHC6h/LpBFy0MmtJitu0Y2y16oej1UqtvoGWLJTRcG41vIri37wRUNLqLpZBvoogcRKHVpZVPuYibw7i6zb3Tro5uqAbEs5huwpildL7qVmzKKpvCOqq5W+aQUTdWLX/oV9tStWGn61i3iNeWP1fFjoNXIpTi0fLL7BqcsF1pML2N0i2QBP2CLomyhcZXaJ6qg6HK03N/Ikq05Y0E4KRhk4Ky1Jya/5uKf5qGR2a83WjxnwOvmLrMWz3DQZM9q498HtCCz5FIfxj6QuXGErB/Qup3M3+EB7tbwQOXVsOIBupvIO6Cxt90HmaffdZI9kHu1MPdBR3MC/wf+AfAyOEdHzYUBAAAAAElFTkSuQmCC" alt="Alumni 1">
+                            </div><div class="alumni-details">
+                                <div class="alumni-name">Member Name</div>
+                                <div class="alumni-position">Software Engineer</div>
+                            </div>
+                            <button class="btn btn-primary">Connect</button>
+                        </div>
+                    </div>
+                    <div class="container  pt-3">
+                        <div class="alumni-card card">
+                            <img class="banner-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXcXcJz-FcbHbYb7TIRtYVD2LtMKPGagp7Sw&usqp=CAU" alt="Banner Image">
+                            <div class="profile">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAAAMFBMVEXk5ueutLeqsbTr7e3n6eqxt7q4vcDW2drh4+SnrrHGyszc3+DJzc/Z3N27wMPS1deF7xLCAAAEF0lEQVR4nO2c25LjKAxAMRY2N8P//+1ix5PeziYOICwxtZynrn46pRISYBEhBoPBYDAYDAaDwWAwGGQDB9wWX9kVtVujTfjo9OM/fQJi83aRxsgDY6bFRten7yz8oqScfiGlChFmbrdXQNhX0x9jL7qKLzj/yXXHTF734ztHdeF6+C5rJ7ogwrXqA9uFLmzfAvsnvB1kA8QpSzatNsWeDUk2H7nx6kI0BbaTYY1uoWxiZZRdC12nSWk2W5dXDf6NVFy5AKFYNuky1V3wpUn70I0curDVuCYWltStyYMjuBy5sFbKpqpLH1xYqm1loA4urFVL7NTdqG3rQ0ufueDqXRPK0dpalC1xzdWYRNjXGaVsdWd46lLaCo8KbSq5kdK2to89Y0tachVONkF4f6MRreEMLp2swDSy05buQAnYRUZacZG94YCu+c5LA1uyZTbjS8JEV8JmvOywHbb0ti1WGV1NwG5qJsp6CxZv6+k2YX9V5xUOv6shPEc22DH+VbtxRfk1FbvMJOEiExCxp0jKuyVwyFRQhLICe+iVllQWPCq0kvi7mUbJUl/m45ovZUU40BhbYldUcEmL7Un9fTPtBeOD6isQSXq/+KTuVoH2pvkJbHU7MaaRiqpcMCyfeQ/K+y/XJ/QdXbq5kYFvmqK4AZO33BeKxj+kYh5ozJ1dOyPLPRCW/6GPN2f/kLdjkJ0MMqZT2vdskN0MiQrQwVz7Gsufsj/Mbvk8fClV6Mk1AXMM6l2ApVSWedjyHSBcXMzvjY40Zomur6nxH0Cs9thHqqMlL3bt1fQEZtDbmnA6/clt84X9yct80vHzl91Mb9FbG5aDEIK1MW66K2cArd3qrUpLyvx3le3/Cj5uTrO/2UlhczEFczKX3UFKk2qujSunMMBm0+K/ekXySzlVihAFx6OdlKRruI7oe2ejvCPubHtdfdu5cjAy+I0sJWDW9mJXkBPglMU0viC2Bl8i963O/Vc2KQW+bQ6z2TP4zvjCvAZUCrwglzvfybmQWa3yfdVNVzegP74lxGCWO9Jhjrgh1o+k42XrdABoMFT1mbaHC6h/LpBFy0MmtJitu0Y2y16oej1UqtvoGWLJTRcG41vIri37wRUNLqLpZBvoogcRKHVpZVPuYibw7i6zb3Tro5uqAbEs5huwpildL7qVmzKKpvCOqq5W+aQUTdWLX/oV9tStWGn61i3iNeWP1fFjoNXIpTi0fLL7BqcsF1pML2N0i2QBP2CLomyhcZXaJ6qg6HK03N/Ikq05Y0E4KRhk4Ky1Jya/5uKf5qGR2a83WjxnwOvmLrMWz3DQZM9q498HtCCz5FIfxj6QuXGErB/Qup3M3+EB7tbwQOXVsOIBupvIO6Cxt90HmaffdZI9kHu1MPdBR3MC/wf+AfAyOEdHzYUBAAAAAElFTkSuQmCC" alt="Alumni 1">
+                            </div><div class="alumni-details">
+                                <div class="alumni-name">Member Name</div>
+                                <div class="alumni-position">Software Engineer</div>
+                            </div>
+                            <button class="btn btn-primary">Connect</button>
+                        </div>
+                    </div>   <div class="container pt-3">
+                        <div class="alumni-card card">
+                            <img class="banner-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXcXcJz-FcbHbYb7TIRtYVD2LtMKPGagp7Sw&usqp=CAU" alt="Banner Image">
+                            <div class="profile">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAAAMFBMVEXk5ueutLeqsbTr7e3n6eqxt7q4vcDW2drh4+SnrrHGyszc3+DJzc/Z3N27wMPS1deF7xLCAAAEF0lEQVR4nO2c25LjKAxAMRY2N8P//+1ix5PeziYOICwxtZynrn46pRISYBEhBoPBYDAYDAaDwWAwGGQDB9wWX9kVtVujTfjo9OM/fQJi83aRxsgDY6bFRten7yz8oqScfiGlChFmbrdXQNhX0x9jL7qKLzj/yXXHTF734ztHdeF6+C5rJ7ogwrXqA9uFLmzfAvsnvB1kA8QpSzatNsWeDUk2H7nx6kI0BbaTYY1uoWxiZZRdC12nSWk2W5dXDf6NVFy5AKFYNuky1V3wpUn70I0curDVuCYWltStyYMjuBy5sFbKpqpLH1xYqm1loA4urFVL7NTdqG3rQ0ufueDqXRPK0dpalC1xzdWYRNjXGaVsdWd46lLaCo8KbSq5kdK2to89Y0tachVONkF4f6MRreEMLp2swDSy05buQAnYRUZacZG94YCu+c5LA1uyZTbjS8JEV8JmvOywHbb0ti1WGV1NwG5qJsp6CxZv6+k2YX9V5xUOv6shPEc22DH+VbtxRfk1FbvMJOEiExCxp0jKuyVwyFRQhLICe+iVllQWPCq0kvi7mUbJUl/m45ovZUU40BhbYldUcEmL7Un9fTPtBeOD6isQSXq/+KTuVoH2pvkJbHU7MaaRiqpcMCyfeQ/K+y/XJ/QdXbq5kYFvmqK4AZO33BeKxj+kYh5ozJ1dOyPLPRCW/6GPN2f/kLdjkJ0MMqZT2vdskN0MiQrQwVz7Gsufsj/Mbvk8fClV6Mk1AXMM6l2ApVSWedjyHSBcXMzvjY40Zomur6nxH0Cs9thHqqMlL3bt1fQEZtDbmnA6/clt84X9yct80vHzl91Mb9FbG5aDEIK1MW66K2cArd3qrUpLyvx3le3/Cj5uTrO/2UlhczEFczKX3UFKk2qujSunMMBm0+K/ekXySzlVihAFx6OdlKRruI7oe2ejvCPubHtdfdu5cjAy+I0sJWDW9mJXkBPglMU0viC2Bl8i963O/Vc2KQW+bQ6z2TP4zvjCvAZUCrwglzvfybmQWa3yfdVNVzegP74lxGCWO9Jhjrgh1o+k42XrdABoMFT1mbaHC6h/LpBFy0MmtJitu0Y2y16oej1UqtvoGWLJTRcG41vIri37wRUNLqLpZBvoogcRKHVpZVPuYibw7i6zb3Tro5uqAbEs5huwpildL7qVmzKKpvCOqq5W+aQUTdWLX/oV9tStWGn61i3iNeWP1fFjoNXIpTi0fLL7BqcsF1pML2N0i2QBP2CLomyhcZXaJ6qg6HK03N/Ikq05Y0E4KRhk4Ky1Jya/5uKf5qGR2a83WjxnwOvmLrMWz3DQZM9q498HtCCz5FIfxj6QuXGErB/Qup3M3+EB7tbwQOXVsOIBupvIO6Cxt90HmaffdZI9kHu1MPdBR3MC/wf+AfAyOEdHzYUBAAAAAElFTkSuQmCC" alt="Alumni 1">
+                            </div><div class="alumni-details">
+                                <div class="alumni-name">Member Name</div>
+                                <div class="alumni-position">Software Engineer</div>
+                            </div>
+                            <button class="btn btn-primary">Connect</button>
+                        </div>
+                    </div>   <div class="container pt-3">
+                        <div class="alumni-card card">
+                            <img class="banner-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXcXcJz-FcbHbYb7TIRtYVD2LtMKPGagp7Sw&usqp=CAU" alt="Banner Image">
+                            <div class="profile">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAAAMFBMVEXk5ueutLeqsbTr7e3n6eqxt7q4vcDW2drh4+SnrrHGyszc3+DJzc/Z3N27wMPS1deF7xLCAAAEF0lEQVR4nO2c25LjKAxAMRY2N8P//+1ix5PeziYOICwxtZynrn46pRISYBEhBoPBYDAYDAaDwWAwGGQDB9wWX9kVtVujTfjo9OM/fQJi83aRxsgDY6bFRten7yz8oqScfiGlChFmbrdXQNhX0x9jL7qKLzj/yXXHTF734ztHdeF6+C5rJ7ogwrXqA9uFLmzfAvsnvB1kA8QpSzatNsWeDUk2H7nx6kI0BbaTYY1uoWxiZZRdC12nSWk2W5dXDf6NVFy5AKFYNuky1V3wpUn70I0curDVuCYWltStyYMjuBy5sFbKpqpLH1xYqm1loA4urFVL7NTdqG3rQ0ufueDqXRPK0dpalC1xzdWYRNjXGaVsdWd46lLaCo8KbSq5kdK2to89Y0tachVONkF4f6MRreEMLp2swDSy05buQAnYRUZacZG94YCu+c5LA1uyZTbjS8JEV8JmvOywHbb0ti1WGV1NwG5qJsp6CxZv6+k2YX9V5xUOv6shPEc22DH+VbtxRfk1FbvMJOEiExCxp0jKuyVwyFRQhLICe+iVllQWPCq0kvi7mUbJUl/m45ovZUU40BhbYldUcEmL7Un9fTPtBeOD6isQSXq/+KTuVoH2pvkJbHU7MaaRiqpcMCyfeQ/K+y/XJ/QdXbq5kYFvmqK4AZO33BeKxj+kYh5ozJ1dOyPLPRCW/6GPN2f/kLdjkJ0MMqZT2vdskN0MiQrQwVz7Gsufsj/Mbvk8fClV6Mk1AXMM6l2ApVSWedjyHSBcXMzvjY40Zomur6nxH0Cs9thHqqMlL3bt1fQEZtDbmnA6/clt84X9yct80vHzl91Mb9FbG5aDEIK1MW66K2cArd3qrUpLyvx3le3/Cj5uTrO/2UlhczEFczKX3UFKk2qujSunMMBm0+K/ekXySzlVihAFx6OdlKRruI7oe2ejvCPubHtdfdu5cjAy+I0sJWDW9mJXkBPglMU0viC2Bl8i963O/Vc2KQW+bQ6z2TP4zvjCvAZUCrwglzvfybmQWa3yfdVNVzegP74lxGCWO9Jhjrgh1o+k42XrdABoMFT1mbaHC6h/LpBFy0MmtJitu0Y2y16oej1UqtvoGWLJTRcG41vIri37wRUNLqLpZBvoogcRKHVpZVPuYibw7i6zb3Tro5uqAbEs5huwpildL7qVmzKKpvCOqq5W+aQUTdWLX/oV9tStWGn61i3iNeWP1fFjoNXIpTi0fLL7BqcsF1pML2N0i2QBP2CLomyhcZXaJ6qg6HK03N/Ikq05Y0E4KRhk4Ky1Jya/5uKf5qGR2a83WjxnwOvmLrMWz3DQZM9q498HtCCz5FIfxj6QuXGErB/Qup3M3+EB7tbwQOXVsOIBupvIO6Cxt90HmaffdZI9kHu1MPdBR3MC/wf+AfAyOEdHzYUBAAAAAElFTkSuQmCC" alt="Alumni 1">
+                            </div><div class="alumni-details">
+                                <div class="alumni-name">Member Name</div>
+                                <div class="alumni-position">Software Engineer</div>
+                            </div>
+                            <button class="btn btn-primary">Connect</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more alumni cards as needed -->
+
+            </div>
+            <div class="col-md-3">
+                <div class="side-content pt-5">
+                <div class="side-page">
+                    <div class="recently-connected">
+                        <h2>Recently Connected</h2>
+                        
+                        <div class="card pt-1 pb-1">
+                        <div class="recently-connected-item">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAAAMFBMVEXk5ueutLeqsbTr7e3n6eqxt7q4vcDW2drh4+SnrrHGyszc3+DJzc/Z3N27wMPS1deF7xLCAAAEF0lEQVR4nO2c25LjKAxAMRY2N8P//+1ix5PeziYOICwxtZynrn46pRISYBEhBoPBYDAYDAaDwWAwGGQDB9wWX9kVtVujTfjo9OM/fQJi83aRxsgDY6bFRten7yz8oqScfiGlChFmbrdXQNhX0x9jL7qKLzj/yXXHTF734ztHdeF6+C5rJ7ogwrXqA9uFLmzfAvsnvB1kA8QpSzatNsWeDUk2H7nx6kI0BbaTYY1uoWxiZZRdC12nSWk2W5dXDf6NVFy5AKFYNuky1V3wpUn70I0curDVuCYWltStyYMjuBy5sFbKpqpLH1xYqm1loA4urFVL7NTdqG3rQ0ufueDqXRPK0dpalC1xzdWYRNjXGaVsdWd46lLaCo8KbSq5kdK2to89Y0tachVONkF4f6MRreEMLp2swDSy05buQAnYRUZacZG94YCu+c5LA1uyZTbjS8JEV8JmvOywHbb0ti1WGV1NwG5qJsp6CxZv6+k2YX9V5xUOv6shPEc22DH+VbtxRfk1FbvMJOEiExCxp0jKuyVwyFRQhLICe+iVllQWPCq0kvi7mUbJUl/m45ovZUU40BhbYldUcEmL7Un9fTPtBeOD6isQSXq/+KTuVoH2pvkJbHU7MaaRiqpcMCyfeQ/K+y/XJ/QdXbq5kYFvmqK4AZO33BeKxj+kYh5ozJ1dOyPLPRCW/6GPN2f/kLdjkJ0MMqZT2vdskN0MiQrQwVz7Gsufsj/Mbvk8fClV6Mk1AXMM6l2ApVSWedjyHSBcXMzvjY40Zomur6nxH0Cs9thHqqMlL3bt1fQEZtDbmnA6/clt84X9yct80vHzl91Mb9FbG5aDEIK1MW66K2cArd3qrUpLyvx3le3/Cj5uTrO/2UlhczEFczKX3UFKk2qujSunMMBm0+K/ekXySzlVihAFx6OdlKRruI7oe2ejvCPubHtdfdu5cjAy+I0sJWDW9mJXkBPglMU0viC2Bl8i963O/Vc2KQW+bQ6z2TP4zvjCvAZUCrwglzvfybmQWa3yfdVNVzegP74lxGCWO9Jhjrgh1o+k42XrdABoMFT1mbaHC6h/LpBFy0MmtJitu0Y2y16oej1UqtvoGWLJTRcG41vIri37wRUNLqLpZBvoogcRKHVpZVPuYibw7i6zb3Tro5uqAbEs5huwpildL7qVmzKKpvCOqq5W+aQUTdWLX/oV9tStWGn61i3iNeWP1fFjoNXIpTi0fLL7BqcsF1pML2N0i2QBP2CLomyhcZXaJ6qg6HK03N/Ikq05Y0E4KRhk4Ky1Jya/5uKf5qGR2a83WjxnwOvmLrMWz3DQZM9q498HtCCz5FIfxj6QuXGErB/Qup3M3+EB7tbwQOXVsOIBupvIO6Cxt90HmaffdZI9kHu1MPdBR3MC/wf+AfAyOEdHzYUBAAAAAElFTkSuQmCC" alt="Connected 1">
+                            <div>
+                                <h3>Gokul krishna</h3>
+                                <p>Profile: Full stack Engineer</p>
+                                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <button class="btn-primary btn"><i class="bi bi-chat-left-text-fill"></i> Message</button>
+                        </div>
+                        </div>
+                        <div class="card pt-1 pb-1">
+                        <div class="recently-connected-item">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAAAMFBMVEXk5ueutLeqsbTr7e3n6eqxt7q4vcDW2drh4+SnrrHGyszc3+DJzc/Z3N27wMPS1deF7xLCAAAEF0lEQVR4nO2c25LjKAxAMRY2N8P//+1ix5PeziYOICwxtZynrn46pRISYBEhBoPBYDAYDAaDwWAwGGQDB9wWX9kVtVujTfjo9OM/fQJi83aRxsgDY6bFRten7yz8oqScfiGlChFmbrdXQNhX0x9jL7qKLzj/yXXHTF734ztHdeF6+C5rJ7ogwrXqA9uFLmzfAvsnvB1kA8QpSzatNsWeDUk2H7nx6kI0BbaTYY1uoWxiZZRdC12nSWk2W5dXDf6NVFy5AKFYNuky1V3wpUn70I0curDVuCYWltStyYMjuBy5sFbKpqpLH1xYqm1loA4urFVL7NTdqG3rQ0ufueDqXRPK0dpalC1xzdWYRNjXGaVsdWd46lLaCo8KbSq5kdK2to89Y0tachVONkF4f6MRreEMLp2swDSy05buQAnYRUZacZG94YCu+c5LA1uyZTbjS8JEV8JmvOywHbb0ti1WGV1NwG5qJsp6CxZv6+k2YX9V5xUOv6shPEc22DH+VbtxRfk1FbvMJOEiExCxp0jKuyVwyFRQhLICe+iVllQWPCq0kvi7mUbJUl/m45ovZUU40BhbYldUcEmL7Un9fTPtBeOD6isQSXq/+KTuVoH2pvkJbHU7MaaRiqpcMCyfeQ/K+y/XJ/QdXbq5kYFvmqK4AZO33BeKxj+kYh5ozJ1dOyPLPRCW/6GPN2f/kLdjkJ0MMqZT2vdskN0MiQrQwVz7Gsufsj/Mbvk8fClV6Mk1AXMM6l2ApVSWedjyHSBcXMzvjY40Zomur6nxH0Cs9thHqqMlL3bt1fQEZtDbmnA6/clt84X9yct80vHzl91Mb9FbG5aDEIK1MW66K2cArd3qrUpLyvx3le3/Cj5uTrO/2UlhczEFczKX3UFKk2qujSunMMBm0+K/ekXySzlVihAFx6OdlKRruI7oe2ejvCPubHtdfdu5cjAy+I0sJWDW9mJXkBPglMU0viC2Bl8i963O/Vc2KQW+bQ6z2TP4zvjCvAZUCrwglzvfybmQWa3yfdVNVzegP74lxGCWO9Jhjrgh1o+k42XrdABoMFT1mbaHC6h/LpBFy0MmtJitu0Y2y16oej1UqtvoGWLJTRcG41vIri37wRUNLqLpZBvoogcRKHVpZVPuYibw7i6zb3Tro5uqAbEs5huwpildL7qVmzKKpvCOqq5W+aQUTdWLX/oV9tStWGn61i3iNeWP1fFjoNXIpTi0fLL7BqcsF1pML2N0i2QBP2CLomyhcZXaJ6qg6HK03N/Ikq05Y0E4KRhk4Ky1Jya/5uKf5qGR2a83WjxnwOvmLrMWz3DQZM9q498HtCCz5FIfxj6QuXGErB/Qup3M3+EB7tbwQOXVsOIBupvIO6Cxt90HmaffdZI9kHu1MPdBR3MC/wf+AfAyOEdHzYUBAAAAAElFTkSuQmCC" alt="Connected 1">
+                            <div>
+                                <h3>Surya kumar</h3>
+                                <p>Profile: Entrepreneur</p>
+                                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                
+                            </div>
+                            <button class="btn-primary btn"><i class="bi bi-chat-left-text-fill"></i> Message</button>
+                        </div>
+                        </div>
+                        <div class="card pt-1 pb-1"> 
+                        <div class="recently-connected-item">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK0AAACUCAMAAADWBFkUAAAAMFBMVEXk5ueutLeqsbTr7e3n6eqxt7q4vcDW2drh4+SnrrHGyszc3+DJzc/Z3N27wMPS1deF7xLCAAAEF0lEQVR4nO2c25LjKAxAMRY2N8P//+1ix5PeziYOICwxtZynrn46pRISYBEhBoPBYDAYDAaDwWAwGGQDB9wWX9kVtVujTfjo9OM/fQJi83aRxsgDY6bFRten7yz8oqScfiGlChFmbrdXQNhX0x9jL7qKLzj/yXXHTF734ztHdeF6+C5rJ7ogwrXqA9uFLmzfAvsnvB1kA8QpSzatNsWeDUk2H7nx6kI0BbaTYY1uoWxiZZRdC12nSWk2W5dXDf6NVFy5AKFYNuky1V3wpUn70I0curDVuCYWltStyYMjuBy5sFbKpqpLH1xYqm1loA4urFVL7NTdqG3rQ0ufueDqXRPK0dpalC1xzdWYRNjXGaVsdWd46lLaCo8KbSq5kdK2to89Y0tachVONkF4f6MRreEMLp2swDSy05buQAnYRUZacZG94YCu+c5LA1uyZTbjS8JEV8JmvOywHbb0ti1WGV1NwG5qJsp6CxZv6+k2YX9V5xUOv6shPEc22DH+VbtxRfk1FbvMJOEiExCxp0jKuyVwyFRQhLICe+iVllQWPCq0kvi7mUbJUl/m45ovZUU40BhbYldUcEmL7Un9fTPtBeOD6isQSXq/+KTuVoH2pvkJbHU7MaaRiqpcMCyfeQ/K+y/XJ/QdXbq5kYFvmqK4AZO33BeKxj+kYh5ozJ1dOyPLPRCW/6GPN2f/kLdjkJ0MMqZT2vdskN0MiQrQwVz7Gsufsj/Mbvk8fClV6Mk1AXMM6l2ApVSWedjyHSBcXMzvjY40Zomur6nxH0Cs9thHqqMlL3bt1fQEZtDbmnA6/clt84X9yct80vHzl91Mb9FbG5aDEIK1MW66K2cArd3qrUpLyvx3le3/Cj5uTrO/2UlhczEFczKX3UFKk2qujSunMMBm0+K/ekXySzlVihAFx6OdlKRruI7oe2ejvCPubHtdfdu5cjAy+I0sJWDW9mJXkBPglMU0viC2Bl8i963O/Vc2KQW+bQ6z2TP4zvjCvAZUCrwglzvfybmQWa3yfdVNVzegP74lxGCWO9Jhjrgh1o+k42XrdABoMFT1mbaHC6h/LpBFy0MmtJitu0Y2y16oej1UqtvoGWLJTRcG41vIri37wRUNLqLpZBvoogcRKHVpZVPuYibw7i6zb3Tro5uqAbEs5huwpildL7qVmzKKpvCOqq5W+aQUTdWLX/oV9tStWGn61i3iNeWP1fFjoNXIpTi0fLL7BqcsF1pML2N0i2QBP2CLomyhcZXaJ6qg6HK03N/Ikq05Y0E4KRhk4Ky1Jya/5uKf5qGR2a83WjxnwOvmLrMWz3DQZM9q498HtCCz5FIfxj6QuXGErB/Qup3M3+EB7tbwQOXVsOIBupvIO6Cxt90HmaffdZI9kHu1MPdBR3MC/wf+AfAyOEdHzYUBAAAAAElFTkSuQmCC" alt="Connected 1">
+                            <div>
+                                <h3>Vikas Ramasamy</h3>
+                                <p>Profile: Software Engineer</p>
+                                <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                            <button class="btn-primary btn"><i class="bi bi-chat-left-text-fill"></i> Message</button>
+                        </div>
+                        </div>
+                        <!-- Add more recently connected items as needed -->
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

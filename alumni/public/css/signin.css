@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: DM Sans;
+      text-align: center;
+    }
+    .he1{
+        text-align: center;
+        font-size: 30px ;
+    }
+    
+    .place{
+        width: 300px;
+       
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    
+    }
+    .place1{
+        padding-right: 260px;
+        display: block;
+      margin-bottom: 8px;
+    }
+    .place2{
+        padding-right: 230px;
+        display: block;
+      margin-bottom: 8px;
+    }
+    .forgot{
+        font-size: 18px;
+        color: rgb(8, 84, 114);
+       margin-top: 0px;
+       margin-left: 160px;
+       text-align: left;
+      
+
+        
+    }
+
+    .split-container {
+      display: flex;
+      height: 100vh; /* 100% of the viewport height */
+    }
+
+    .split-column {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Adjust styles as needed */
+    .left-column {
+      background-color: rgb(195, 196, 216);
+      
+    }
+
+    .right-column {
+      background-color: #ffffff;
+     padding-right: 30px;
+    }
+
+    /* Form styles */
+    .form {
+      max-width: 300px;
+      margin: auto;
+    }
+    button{
+      background-color: #eba53c;
+      color: #fff;
+      padding: 10px 20px 10px 50px;
+      width: 300px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: DM Sans;
+    }
+    .str{
+        color: #eba53c;
+    }
+    .bottom{
+        padding-left: 40px;
+        padding-right: 40px;
+        color: #eba53c;
+    }
+    .line{
+        position: relative;
+        height: 1px;
+        width: 300px
+
+    }
+    
+    .continue{
+      background-color: rgb(231, 225, 225);
+      color: #050505;
+      padding: 10px 20px 10px 50px;
+      width: 300px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: DM Sans;
+    }
+    .image{
+      width: 650px;
+      height: 100vh;
+
+    }
+    
+
+    
+    @media screen  and (max-width: 500px)
+    {
+      .he1{
+        text-align: center;
+        font-size: 20px;
+          }
+    .he2{
+        text-align: center;
+        padding-left: 25px;
+        padding-right: 10px;
+        font-size: 15px;
+    
+    }
+    .place{
+        width: 200px;
+    
+    }
+    .place1{
+        padding-right: 150px;
+    }
+    .place2{
+        padding-right: 150px;
+    } 
+    button{
+      background-color: #eba53c;
+      color: #fff;
+      padding: 10px 20px 10px 50px;
+      width: 200px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: DM Sans;
+    }
+    .bottom{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
+    .continue{
+      background-color: rgb(231, 225, 225);
+      color: #050505;
+      padding: 10px 20px 10px 50px;
+      width: 200px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: DM Sans;
+    }
+    .image{
+      width: 200px;
+      height: 100vh;
+
+    }
+    .forgot{
+      font-size: 15px;
+      color: rgb(8, 84, 114);
+      margin-top: 0px;
+      margin-left: 0%;
+     
+    }
+    }
+
+  

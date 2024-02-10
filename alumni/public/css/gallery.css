@@ -1,0 +1,127 @@
+/* Base styles (applies to all devices) */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+}
+
+.gallery-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.latest-member {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 44px;
+}
+
+.latest-member span {
+  position: relative;
+}
+
+.latest-member span::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30%;
+  height: 4px;
+  background-color: #0f5cbf;
+}
+
+.back-link {
+  font-size: 24px;
+  line-height: 31px;
+  position: absolute;
+  top: 41px;
+  right: 20px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.gallery-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.gallery-item {
+  width: calc(33.33% - 10px);
+  background: #d9d9d9;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.image-row1,
+.image-row2,
+.image-row3 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.image-row1 img {
+  width: calc(20% - 10px);
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-row2 img {
+  width: calc(30% - 10px);
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-row3 img {
+  width: calc(40% - 10px);
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-row1 img:hover,
+.image-row2 img:hover,
+.image-row3 img:hover {
+  transform: scale(1.4);
+}
+
+@media (min-width: 600px) {
+  .gallery-item {
+    width: calc(45% - 10px);
+  }
+
+  .image-row1 img {
+    width: calc(30% - 10px);
+  }
+
+  .image-row2 img {
+    width: calc(45% - 10px);
+  }
+
+  .image-row3 img {
+    width: calc(70% - 10px);
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .gallery-item {
+    width: calc(30% - 10px);
+  }
+
+  .image-row1 img {
+    width: calc(20% - 10px);
+  }
+
+  .image-row2 img {
+    width: calc(30% - 10px);
+  }
+
+  .image-row3 img {
+    width: calc(40% - 10px);
+  }
+}
