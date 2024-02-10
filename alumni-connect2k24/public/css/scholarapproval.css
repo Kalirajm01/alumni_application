@@ -1,9 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
     margin: 0;
-    padding: 0;
-  }
+    font-family: Arial, sans-serif;
+}
 
 .navbar {
     background-color: #007bff;
@@ -27,12 +25,12 @@ body {
     padding: 0;
     display: flex;
     align-items: center;
-    margin-left: 52%;
+    margin-left: 50%;
     margin-right: 10px;
 }
 
 .navbar ul li {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .navbar a {
@@ -124,139 +122,10 @@ body {
 .user-dropdown:hover .user-dropdown-content {
     display: block;
 }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .event-form {
-    background-color: #fff;
-    border-radius: 8px;
+
+.content {
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 90%;
-    animation: slideInFromLeft 0.5s ease-out forwards;
-  }
-  
-  .event-form h2 {
-    text-align: center;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 98%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .btn-create {
-    background-color: #67a0f8;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    display: block;
-    text-align: center;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  .btn-create:hover {
-    background-color: #3b7ae9;
-  }
-
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-  .dropdown-select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-    cursor: pointer;
-    transition: border-color 0.3s;
-  }
-
-  .dropdown-select:hover,
-  .dropdown-select:focus {
-    border-color: #67a0f8;
-  }
-
-  .dropdown-options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-height: 150px;
-    overflow-y: auto;
-    z-index: 1;
-    display: none;
-  }
-
-  .dropdown-select:focus + .dropdown-options {
-    display: block;
-  }
-
-  .dropdown-option {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .dropdown-option:hover {
-    background-color: #f2f2f2;
-  }
-  
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    .event-form {
-      width: 70%;
-    }
-  }
-  
-  @media screen and (min-width: 992px) {
-    .event-form {
-      width: 50%;
-    }
-  }
+}
 
 .footer {
     background-color: #007bff;
@@ -292,6 +161,77 @@ body {
     .user-dropdown-content {
         right: initial;
         left: 0; 
-    }  
-
+    }
 }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+
+  .heading{
+    padding: 20px;
+    margin-left: 40%;
+  }
+  .container {
+    width: 85%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 90vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+  }
+
+  h2 {
+    color: #333;
+    margin-top: 0;
+  }
+
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  /* Button styling */
+  .approve-button, .reject-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+  }
+
+  .approve-button:hover, .reject-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Responsive design */
+  @media screen and (max-width: 768px) {
+    .container {
+      width: 90%;
+    }
+  }

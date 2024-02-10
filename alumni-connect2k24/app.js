@@ -72,6 +72,11 @@ app.get('/requirements', (req, res) => {
     res.render('faculty/requirements');
 });
 
+// Faculty Scholarship Approval Page route
+app.get('/scholarapproval', (req, res) => {
+    res.render('faculty/scholarapproval');
+});
+
 // Alumni Home Page route
 app.get('/alumni', (req, res) => {
     res.render('alumni/alumni');
