@@ -11,7 +11,7 @@
   <div class="container">
     <div class="signin-box">
       <h2>Sign In</h2>
-      <form action="/signin" method="post">
+      <form action="/signin" method="post" id="signin-form">
         <div class="input-group">
           <label for="username"><strong>Username:</strong></label>
           <input type="text" id="username" name="username" required>
@@ -22,10 +22,11 @@
         </div>
         <button type="submit" class="btn-primary">Sign In</button>
       </form>
+      <div class="error-message" id="error-message"></div>
       <div style="margin-top: 10px; text-align: center;">
-        <span><strong>Not have an account?</strong> <a href="/signup">Sign Up</a></span>
+        <span><strong>Don't have an account?</strong> <a href="/signup">Sign Up</a></span>
         <br>
-        <a href="/forget"><strong>Forget Password?</strong></a>
+        <a href="/forget"><strong>Forgot Password?</strong></a>
       </div>
     </div>
   </div>
@@ -33,5 +34,24 @@
   <footer class="footer">
     &copy; 2024 Alumni Connect Application
   </footer>
+
 </body>
 </html>
+
+<script>
+  document.getElementById("signin-form").addEventListener("submit", function(event) {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var errorMessage = document.getElementById("error-message");
+
+    if (username.trim() === "" || password.trim() === "") {
+        errorMessage.textContent = "Please enter both username and password.";
+        errorMessage.style.display = "block";
+        event.preventDefault();
+        return;
+    }
+    errorMessage.textContent = "";
+    errorMessage.style.display = "none";
+});
+
+</script>
