@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/post.css">
+<link rel="icon" href="img/logo.png" type="image/x-icon">
+<title>Internships/Jobs Post Page</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/alumni" class="back-button">Back</a>
+        <h2>Jobs/Internships Requirements Form</h2>
+        <form action="#" method="post">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+      
+          <label for="type">Type:</label>
+          <select id="type" name="type" required>
+            <option value="" disabled selected>Select the Type</option>
+            <option value="job">Job</option>
+            <option value="internship">Internship</option>
+            <option value="project">Project</option>
+          </select>
+      
+          <label for="company">Company Name:</label>
+          <input type="text" id="company" name="company" required>
+      
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required>
+      
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="4" required></textarea>
+      
+          <label for="requirements">Requirements:</label>
+          <textarea id="requirements" name="requirements" rows="4" required></textarea>
+      
+          <label for="department">Department:</label>
+          <select id="department" name="department" required>
+            <option value="" disabled selected>Select Department</option>
+            <option value="aids">AIDS</option>
+            <option value="csbs">CSBS</option>
+            <option value="cse">CSE</option>
+            <option value="civil">Civil</option>
+            <option value="ece">ECE</option>
+            <option value="eee">EEE</option>
+            <option value="mech">Mech</option>
+          </select>
+      
+          <label for="contact">Contact:</label>
+          <input type="text" id="contact" name="contact" required>
+      
+          <label for="apply-by">Apply By Date:</label>
+          <input type="date" id="apply-by" name="apply-by" required>
+      
+          <input type="submit" value="Create">
+        </form>
+      </div>
+</body>
+</html>
