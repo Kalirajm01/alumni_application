@@ -165,7 +165,11 @@ body {
     border: 1px solid #ccc;
   }
   
-  .btn-create {
+  .form-group label{
+    font-weight: bold;
+  }
+
+  .btn-request {
     background-color: #67a0f8;
     color: #fff;
     border: none;
@@ -179,7 +183,7 @@ body {
     transition: background-color 0.3s;
   }
   
-  .btn-create:hover {
+  .btn-request:hover {
     background-color: #3b7ae9;
   }
 
@@ -234,7 +238,15 @@ body {
   .dropdown-option:hover {
     background-color: #f2f2f2;
   }
-  
+
+
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  }
+
+   
   @keyframes slideInFromLeft {
     0% {
       transform: translateX(-100%);
@@ -245,6 +257,7 @@ body {
       opacity: 1;
     }
   }
+
 
   @media screen and (min-width: 768px) {
     .event-form {
@@ -295,3 +308,8 @@ body {
     }  
 
 }
+
+
+
+
+   

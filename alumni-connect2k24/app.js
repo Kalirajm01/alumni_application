@@ -52,9 +52,14 @@ app.get('/faculty', (req, res) => {
     res.render('faculty/faculty');
 });
 
-// Faculty EventRequest Page route
+// Faculty Event Upload Page route
 app.get('/eventsreq', (req, res) => {
     res.render('faculty/eventsreq');
+});
+
+// Faculty Requirements Request Page route
+app.get('/requirements', (req, res) => {
+    res.render('faculty/requirements');
 });
 
 // Alumni Homepage Page route
