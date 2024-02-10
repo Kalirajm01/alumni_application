@@ -17,6 +17,11 @@ app.set('pages', path.join(__dirname, './views/pages'));
 
 
 // Define routes
+//Demo Page route
+app.get('/home', (req, res) => {
+    res.render('home');
+});
+
 //Signin Page route
 app.get('/', (req, res) => {
     res.render('signin');
@@ -40,6 +45,11 @@ app.get('/devops', (req, res) => {
 // Student Homepage Page route
 app.get('/student', (req, res) => {
     res.render('student/student');
+});
+
+// Student Chat Page route
+app.get('/chat', (req, res) => {
+    res.render('student/studentchat');
 });
 
 // Admin Homepage Page route
@@ -70,6 +80,11 @@ app.get('/alumni', (req, res) => {
 // Alumni Scholarship Fund Page route
 app.get('/fund', (req, res) => {
     res.render('alumni/scholarshipfund');
+});
+
+// Alumni Internship/Jobs Posting Page route
+app.get('/post', (req, res) => {
+    res.render('alumni/post');
 });
 
 //Events Page route

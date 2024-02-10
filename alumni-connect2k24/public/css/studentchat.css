@@ -26,7 +26,7 @@ body {
     display: flex;
     align-items: center;
     margin-left: 38%;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .navbar ul li {
@@ -123,54 +123,7 @@ body {
     display: block;
 }
 
-.content {
-    padding: 20px;
-}
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  .job-post {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-
-  .job-post h2 {
-    color: #333;
-    margin-top: 0;
-  }
-
-  .job-post p {
-    color: #555;
-  }
-
-  .apply-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-
-  .apply-button:hover {
-    background-color: #0056b3;
-  }
-
-  /* Responsive design */
-  @media screen and (max-width: 768px) {
-    .job-post {
-      padding: 15px;
-    }
-  }
-
-.footer {
+  .footer {
     background-color: #007bff;
     color: white;
     text-align: center;
@@ -180,29 +133,126 @@ body {
     width: 100%;
 }
 
-
-@media only screen and (max-width: 768px) {
-    .navbar {
-        height: auto;
-        flex-direction: column;
-        align-items: flex-start;
+.message-board {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  
+  .message-board h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .message-form textarea {
+    width: 50%;
+    height: 30vh;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .filter-options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .filter-options label {
+    margin-right: 10px;
+  }
+  
+  .filter-options select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #send-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #send-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .message-list {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 50%;
+    height: 22vh;
+    overflow-y: auto;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .message p {
+    margin: 0;
+  }
+  
+  /* Animation */
+  .message.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
     }
-
-    .navbar ul {
-        flex-direction: column;
+    to {
+      opacity: 1;
     }
-
-    .navbar ul li {
-        margin: 10px 0;
+  }
+  
+  /* Responsive styles */
+  @media only screen and (max-width: 768px) {
+    .message-form {
+      display: flex;
+      flex-direction: column;
     }
-
-    .user-dropdown {
-        margin-left: 0;
-        margin-top: 10px;
+    
+    .filter-options {
+      flex-direction: column;
     }
-
-    .user-dropdown-content {
-        right: initial;
-        left: 0; 
+    
+    .filter-options select {
+      margin-top: 10px;
     }
-}
+    
+    #send-button {
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .message-board {
+      padding: 10px;
+    }
+    
+    .message-form textarea {
+      padding: 8px;
+    }
+    
+    .filter-options select {
+      padding: 6px;
+    }
+    
+    #send-button {
+      padding: 8px 16px;
+    }
+  }
+  
+  
