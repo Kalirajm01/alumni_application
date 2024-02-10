@@ -165,6 +165,114 @@ body {
     background-color: #0056b3;
 }
 
+.donation-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.donation-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.donation-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.donation-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.donation-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.donation-container label {
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+.donation-container input[type="number"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.donation-container .btn-donate {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.donation-container .btn-donate:hover {
+    background-color: #0056b3;
+}
+
+.students-required {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.students-required h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.students-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.student {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    max-width: 300px;
+}
+
+.student .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.student .info span {
+    margin-bottom: 5px;
+}
+
+.student .info span.year {
+    font-weight: bold;
+}
+
+.student .info span.department {
+    font-style: italic;
+}
+
+.student .info span.name {
+    font-weight: bold;
+}
+
+.student .info span.roll-number {
+    font-style: italic;
+}
+
+
+
 .footer {
     background-color: #007bff;
     color: white;

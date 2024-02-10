@@ -62,9 +62,14 @@ app.get('/requirements', (req, res) => {
     res.render('faculty/requirements');
 });
 
-// Alumni Homepage Page route
+// Alumni Home Page route
 app.get('/alumni', (req, res) => {
     res.render('alumni/alumni');
+});
+
+// Alumni Scholarship Fund Page route
+app.get('/fund', (req, res) => {
+    res.render('alumni/scholarshipfund');
 });
 
 //Events Page route
