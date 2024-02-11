@@ -123,10 +123,6 @@ body {
     display: block;
 }
 
-.content {
-    padding: 20px;
-}
-
 
 .footer {
     background-color: #007bff;
@@ -136,4 +132,67 @@ body {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+/* Main container styles */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* Contact form styles */
+.contact-form {
+    width: 35%;
+}
+
+.contact-form h2 {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: #007bff;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-info {
+    width: 40%;
+}
+
+.contact-info h2 {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: #007bff;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info p .head {
+    color: #007bff;
 }

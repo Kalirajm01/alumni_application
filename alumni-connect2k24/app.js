@@ -87,6 +87,11 @@ app.get('/fund', (req, res) => {
     res.render('alumni/scholarshipfund');
 });
 
+// Alumni Chat Page route
+app.get('/alumnichat', (req, res) => {
+    res.render('alumni/alumnichat');
+});
+
 // Alumni Internship/Jobs Posting Page route
 app.get('/post', (req, res) => {
     res.render('alumni/post');
