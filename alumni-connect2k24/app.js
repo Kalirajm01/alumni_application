@@ -22,6 +22,11 @@ app.get('/home', (req, res) => {
     res.render('home');
 });
 
+//User Profile Page route
+app.get('/users', (req, res) => {
+    res.render('users');
+});
+
 //Signin Page route
 app.get('/', (req, res) => {
     res.render('signin');
@@ -55,6 +60,21 @@ app.get('/chat', (req, res) => {
 // Admin Homepage Page route
 app.get('/admin', (req, res) => {
     res.render('admin/admin');
+});
+
+// Alumni Broadcast Page route
+app.get('/alumnibroadcast', (req, res) => {
+    res.render('admin/alumnibroadcast');
+});
+
+// Student Broadcast Page route
+app.get('/studentbroadcast', (req, res) => {
+    res.render('admin/studentbroadcast');
+});
+
+// Faculty Broadcast Page route
+app.get('/facultybroadcast', (req, res) => {
+    res.render('admin/facultybroadcast');
 });
 
 // Faculty Homepage Page route

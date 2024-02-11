@@ -1,0 +1,73 @@
+.header {
+    /* background-color: #007bff; */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.header button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    position: absolute;
+    left: 20px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.profile-settings {
+    width: 50%;
+    margin: 0 auto;
+    animation: slideIn 0.5s ease;
+}
+
+.profile-settings h2 {
+    text-align: center;
+}
+
+.profile-settings form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-settings label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.profile-settings input,
+.profile-settings textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.profile-settings button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

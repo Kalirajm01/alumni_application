@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/users.css">
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <title>User Profile Settings</title>
+</head>
+<body>
+    <div class="header">
+        <button onclick="goBack()">Back</button>
+    </div>
+    <div class="container">
+        <div class="profile-settings">
+            <h2>Edit Profile</h2>
+            <form action="#" method="post">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="profile-pic">Profile Picture:</label>
+                <input type="file" id="profile-pic" name="profile-pic">
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" rows="4"></textarea>
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024  Alumni Connect Application
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
