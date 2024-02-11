@@ -35,16 +35,11 @@
     var from = document.getElementById("fromInput").value;
     var message = document.getElementById("messageInput").value;
 
-    // Check if from and message are not empty
     if (from.trim() === "" || message.trim() === "") {
         alert("Please fill in both 'From' and 'Message' fields.");
         return;
     }
 
-    // Send the message to the server
-    // Example: Implement AJAX request to server
-
-    // For demonstration purposes, display the message directly
     displayMessage(from, message);
 }
 
