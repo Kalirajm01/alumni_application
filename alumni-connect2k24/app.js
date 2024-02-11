@@ -77,6 +77,16 @@ app.get('/facultybroadcast', (req, res) => {
     res.render('admin/facultybroadcast');
 });
 
+// Admin Event Upload Page route
+app.get('/admineventsreq', (req, res) => {
+    res.render('admin/admineventsreq');
+});
+
+// Admin Requirements Request Page route
+app.get('/adminrequirements', (req, res) => {
+    res.render('admin/adminrequirements');
+});
+
 // Faculty Homepage Page route
 app.get('/faculty', (req, res) => {
     res.render('faculty/faculty');
