@@ -206,6 +206,28 @@ body {
     background-color: #3b7ae9;
 }
 
+.welcome-section {
+    background-size: cover;
+    background-position: center;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.welcome-text {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.welcome-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
 .title{
     color: black;
 }
