@@ -1,4 +1,3 @@
-// app.js
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -15,14 +14,18 @@ app.set('alumni', path.join(__dirname, './views/alumni'));
 app.set('pages', path.join(__dirname, './views/pages'));
 
 
-
 // Define routes
 //Demo Page route
 app.get('/home', (req, res) => {
     res.render('home');
 });
 
-//User Profile Page route
+// Admin Requirements Request Page route
+app.get('/landing', (req, res) => {
+    res.render('landing');
+});
+
+// User Profile Page route
 app.get('/users', (req, res) => {
     res.render('users');
 });
@@ -127,32 +130,32 @@ app.get('/post', (req, res) => {
     res.render('alumni/post');
 });
 
-//Events Page route
+// Events Page route
 app.get('/events', (req, res) => {
     res.render('pages/events');
 });
 
-//Gallery Page route
+// Gallery Page route
 app.get('/gallery', (req, res) => {
     res.render('pages/gallery');
 });
 
-//Scholarship Page route
+// Scholarship Page route
 app.get('/scholarship', (req, res) => {
     res.render('student/scholarship');
 });
 
-//Jobs/Internships Page route
+// Jobs/Internships Page route
 app.get('/jobs', (req, res) => {
     res.render('pages/jobs');
 });
 
-//About Page route
+// About Page route
 app.get('/about', (req, res) => {
     res.render('pages/about');
 });
 
-//Contact Us Page route
+// Contact Us Page route
 app.get('/contact', (req, res) => {
     res.render('pages/contact');
 });

@@ -209,7 +209,7 @@ body {
 .welcome-section {
     background-size: cover;
     background-position: center;
-    height: 92vh;
+    height: 52vh;
     display: flex;
     justify-content: center;
     align-items: center;

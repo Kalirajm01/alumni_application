@@ -17,6 +17,14 @@ body {
     font-size: x-large;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 4%;
+}
+
+.logo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
 }
 
 .navbar ul {
@@ -25,8 +33,7 @@ body {
     padding: 0;
     display: flex;
     align-items: center;
-    margin-left: 52%;
-    margin-right: 10px;
+    margin-left: 45%;
 }
 
 .navbar ul li {
@@ -127,7 +134,7 @@ body {
 .welcome-section {
     background-size: cover;
     background-position: center;
-    height: 92vh;
+    height: 52vh;
     display: flex;
     justify-content: center;
     align-items: center;
