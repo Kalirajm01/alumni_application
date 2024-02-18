@@ -17,7 +17,16 @@ body {
     font-size: x-large;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 4%;
 }
+
+.logo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+  }
+  
 
 .navbar ul {
     list-style-type: none;
@@ -25,8 +34,7 @@ body {
     padding: 0;
     display: flex;
     align-items: center;
-    margin-left: 38%;
-    margin-right: 10px;
+    margin-left: 34%;
 }
 
 .navbar ul li {

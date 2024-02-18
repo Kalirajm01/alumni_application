@@ -20,7 +20,7 @@ app.get('/home', (req, res) => {
     res.render('home');
 });
 
-// Admin Requirements Request Page route
+// Landing Page route
 app.get('/landing', (req, res) => {
     res.render('landing');
 });
@@ -158,6 +158,11 @@ app.get('/about', (req, res) => {
 // Contact Us Page route
 app.get('/contact', (req, res) => {
     res.render('pages/contact');
+});
+
+// Executive Home Page route
+app.get('/executive', (req, res) => {
+    res.render('executive/executive');
 });
 
 // Start the server
