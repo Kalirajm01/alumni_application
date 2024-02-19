@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-image: linear-gradient( #7bc393 , #31b7c2 );
 }
 
 .container {
@@ -14,7 +14,7 @@ body {
 }
 
 .signin-box {
-  background-color: #fff;
+  background-color: #0000002b;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -25,7 +25,7 @@ body {
 
 .signin-box h2 {
   text-align: center;
-  color: #333;
+  color: #fff;
 }
 
 .input-group {
@@ -35,14 +35,19 @@ body {
 .input-group label {
   display: block;
   margin-bottom: 5px;
-  color: #555;
+  color: #ffffff;
+  font-weight: bolder;
 }
 
 .input-group input {
   width: 98%;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 1px #000000;
+  border: 0px solid #ccc;
+  background-color: #ffffff4f;
   transition: border-color 0.3s; 
 }
 
@@ -52,7 +57,8 @@ body {
 }
 
 .btn-primary {
-  background-color: #67a0f8;
+  /* background-color: #67a0f8; */
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -75,7 +81,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #67a0f8;
+  background-color: #0000006c;
   padding: 10px 0;
   text-align: center;
   color: #fff;

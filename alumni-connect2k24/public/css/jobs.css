@@ -141,7 +141,7 @@ body {
   }
 
   .job-post {
-    background-color: #f9f9f9;
+    background-color: #0000001a;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
@@ -157,18 +157,22 @@ body {
   }
 
   .apply-button {
-    background-color: #007bff;
+    /* background-color: #007bff; */
+    background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    /* transition: background-image 0.3s; */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
   .apply-button:hover {
-    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
   }
 
   /* Responsive design */
