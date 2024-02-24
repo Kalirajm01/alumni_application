@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Montserrat;
+    background: #EEEEFF;
 }
 
 .navbar {
-    background-color: #007bff;
+    background: #4F4663;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,9 +16,18 @@ body {
 
 .logo-text {
     color: white;
-    font-size: x-large;
+    font-size: 24px;
     font-weight: bold;
+    font-family: Montserrat;
     cursor: pointer;
+    margin-left: 4%;
+}
+
+.logo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
 }
 
 .navbar ul {
@@ -25,8 +36,7 @@ body {
     padding: 0;
     display: flex;
     align-items: center;
-    margin-left: 52%;
-    margin-right: 10px;
+    margin-left: 45%;
 }
 
 .navbar ul li {
@@ -38,6 +48,8 @@ body {
     text-align: center;
     text-decoration: none;
     padding: 14px 10px;
+    font-family: Montserrat;
+    font-size: 18px;
     display: block;
     font-size: medium;
     transition: background-color 0.3s;
@@ -45,7 +57,8 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
-    background-color: #0056b3; 
+    background-color: #0058b649; 
+    border-radius: 10px;
 }
 
 .dropdown {
@@ -123,57 +136,71 @@ body {
     display: block;
 }
 
-.welcome-section {
-    background-size: cover;
-    background-position: center;
-    height: 52vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, #53448C, #5412877e);
+    animation: 5s ease infinite;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
     text-align: center;
-    color: #fff;
+    font-size: 2em;
 }
 
-.welcome-text {
-    max-width: 800px;
-    padding: 20px;
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-.welcome-text h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+@media only screen and (max-width: 768px) {
+    .text {
+        font-size: 1.5em;
+    }
 }
 
-.welcome-text p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #0056b3;
+@media only screen and (max-width: 480px) {
+    .text {
+        font-size: 1em;
+    }
 }
 
 .footer {
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
     position: relative;
     bottom: 0;
+    left: 0;
     width: 100%;
-}
+    background-color: #4F4663;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+  }
+
 
 
 @media only screen and (max-width: 768px) {
