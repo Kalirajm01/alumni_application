@@ -6,15 +6,34 @@
 <link rel="icon" href="img/logo.png" type="image/x-icon">
 <title>Landing Page</title>
   <style>
-    body {
+    /* body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+    } */
+
+    body {
+    background: linear-gradient(120deg, #d4fc79, #96e6a1, #4ecdc4, #556270);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
     }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
     .hero-section {
       height: 100vh;
       /* background: linear-gradient(to bottom right, #007BFF, #4F81FD); */
-      background:  linear-gradient(to right, #53448C, #62A3DA);
+      /* background:  linear-gradient(to right, #53448C, #62A3DA); */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -88,6 +107,34 @@
         padding: 8px 16px;
       }
     }
+
+    .button {
+    background: linear-gradient(120deg, #d4fc79, #96e6a1, #4ecdc4, #556270);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.5s;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+.button:hover {
+    background: linear-gradient(120deg, #556270, #4ecdc4, #96e6a1, #d4fc79);
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
   </style>
 </head>
 <body>
@@ -96,7 +143,7 @@
     <div class="hero-content">
       <h1></h1>
       <h1>Welcome to Alumni Connect Application</h1>
-      <button style="color: white;" class="cta-btn"><a href="/">Get Started</a></button>
+      <button style="color: white;" class="button"><a href="/">Get Started</a></button>
     </div>
   </section>
 

@@ -165,6 +165,16 @@ app.get('/executive', (req, res) => {
     res.render('executive/executive');
 });
 
+// Executive Broadcast Page route
+app.get('/executivebroadcast', (req, res) => {
+    res.render('executive/executivebroadcast');
+});
+
+// Executive RBAC Page route
+app.get('/control', (req, res) => {
+    res.render('executive/rbac');
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

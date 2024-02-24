@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    margin: 0;
+    font-family: Montserrat;
+}
+
 .header {
-    /* background-color: #007bff; */
     color: white;
     text-align: center;
     padding: 20px;
@@ -21,30 +26,55 @@
 }
 
 .profile-settings {
-    width: 50%;
-    margin: 0 auto;
-    animation: slideIn 0.5s ease;
-}
-
-.profile-settings h2 {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin-left: 20%;
+    animation: slideInFromLeft 0.5s ease-out forwards;
+  }
+  
+  .profile-settings h2 {
     text-align: center;
-}
-
-.profile-settings form {
-    display: flex;
-    flex-direction: column;
-}
-
-.profile-settings label {
-    margin-bottom: 5px;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 28px;
     font-weight: bold;
-}
-
-.profile-settings input,
-.profile-settings textarea {
-    margin-bottom: 10px;
+  }
+  
+  .profile-settings {
+    margin-bottom: 20px;
+  }
+  
+  .profile-settings label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: Montserrat;
+    font-size: 16px;
+    color: #4D4D4D;
+    font-weight: bolder;
+  }
+  
+  .profile-settings input,
+  .profile-settings select {
+    width: 98%;
     padding: 10px;
-}
+    border-radius: 8px;
+    color: #555;
+    font-family: Montserrat;
+    font-size: 16px;
+    box-shadow: 1px #000000;
+    border: 1px solid #cbcadc;
+    background-color: #f3f3f7;
+    transition: border-color 0.3s; 
+  }
+  
+  .profile-settings input:focus,
+  .profile-settings select:focus {
+    outline: none;
+    border-color: #000000;
+  }
 
 .profile-settings button {
     padding: 10px 20px;
@@ -54,12 +84,42 @@
     cursor: pointer;
 }
 
-.footer {
-    background-color: #007bff;
-    color: white;
+
+.profile-settings button {
+    background: linear-gradient(to right, #53448C, #62A3DA);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 35%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Montserrat;
+    font-size: 16px;
+    width: 20%;
+    display: block;
     text-align: center;
-    padding: 20px 0;
-}
+    transition: background-color 0.3s, transform 0.2s; 
+  }
+  
+  .profile-settings button:hover {
+    background-color: #31b6c2e0;
+    transform: scale(.97); 
+  }
+
+.footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4F4663;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+  }
+
 
 @keyframes slideIn {
     from {

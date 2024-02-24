@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-image: linear-gradient( #7bc393 , #31b7c2 );
+  font-family: Montserrat;
+  background: linear-gradient(to right, #53448C, #62A3DA);
 }
 
 .container {
@@ -14,8 +16,8 @@ body {
 }
 
 .signin-box {
-  background-color: #0000002b;
-  border-radius: 8px;
+  background-color: #fff;
+  border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 400px;
@@ -25,7 +27,16 @@ body {
 
 .signin-box h2 {
   text-align: center;
-  color: #fff;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.img-logo {
+  width: 240px;
+  height: 52px;
+  margin-left: 20%;
 }
 
 .input-group {
@@ -35,45 +46,51 @@ body {
 .input-group label {
   display: block;
   margin-bottom: 5px;
-  color: #ffffff;
+  font-family: Montserrat;
+  font-size: 16px;
+  color: #4D4D4D;
   font-weight: bolder;
 }
 
-.input-group input {
+.input-group input,
+.input-group select {
   width: 98%;
   padding: 10px;
   border-radius: 8px;
-  color: #000000;
-  font-weight: 700;
+  color: #555;
+  font-family: Montserrat;
+  font-size: 16px;
   box-shadow: 1px #000000;
-  border: 0px solid #ccc;
-  background-color: #ffffff4f;
+  border: 1px solid #cbcadc;
+  background-color: #f3f3f7;
   transition: border-color 0.3s; 
 }
 
-.input-group input:focus {
+.input-group input:focus,
+.input-group select:focus {
   outline: none;
-  border-color: #67a0f8;
+  border-color: #000000;
 }
 
 .btn-primary {
-  /* background-color: #67a0f8; */
-  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(to right, #53448C, #62A3DA);
   color: #fff;
   border: none;
   padding: 10px 20px;
+  margin-left: 5%;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%;
+  font-family: Montserrat;
+  font-size: 16px;
+  width: 90%;
   display: block;
   text-align: center;
-  font-size: 16px;
   transition: background-color 0.3s, transform 0.2s; 
 }
 
 .btn-primary:hover {
-  background-color: #3b7ae9;
-  transform: scale(1.05); 
+  background-color: #31b6c2e0;
+  transform: scale(.97); 
 }
 
 .footer {
@@ -81,10 +98,20 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #0000006c;
+  background-color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
   padding: 10px 0;
+  font-weight: bold;
   text-align: center;
-  color: #fff;
+  color: #2b4bab;
+}
+
+.footer .p {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2b4bab;
 }
 
 .error-message {

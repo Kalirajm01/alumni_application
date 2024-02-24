@@ -10,18 +10,28 @@
 <body>
     <%- include('header/navbar.ejs') %>
     <div class="content">
-        <h2>Broadcast a Message</h2>
+        <h2>Broadcast</h2>
+        <div class="form">
         <div class="input-group">
             <label for="fromInput">From:</label>
             <input type="text" id="fromInput" placeholder="Your name">
         </div>
         <div class="input-group">
+            <label for="role"><strong>To</strong></label>
+            <select id="role" name="role" required>
+              <option style="color: black;" value="student">Student</option>
+              <option style="color: black;" value="alumni">Alumni</option>
+              <option style="color: black;" value="faculty">Faculty</option>
+            </select>
+          </div>
+        <div class="input-group">
             <label for="messageInput">Message:</label>
             <textarea id="messageInput" placeholder="Type your message..."></textarea>
         </div>
-        <button onclick="broadcastMessage()">Broadcast</button>
+        <button class="button" onclick="broadcastMessage()">Broadcast</button>
         <div id="messageDisplay"></div>
     </div>
+</div>
     <div class="footer">
         &copy; 2024 Alumni Connect Application
     </div>
