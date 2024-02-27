@@ -136,31 +136,64 @@ body {
         display: block;
     }
 
-    .content {
-        padding: 20px;
+    .developers {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
-
-    .content div {
-        flex: 0 0 30%; 
-        padding: 10px;
-        margin: 10px; 
-    }
-
-    .content img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .content h3 {
+    
+    .developer {
+        width: 250px;
+        margin: 20px;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
+        transition: transform 0.3s ease-in-out;
     }
 
-    .content div:nth-child(1) {
-        flex: 0 0 100%;
-        text-align: center; 
+    .developer img {
+        max-width: 60%;
+        height: 45%;
+    }
+    
+    .developer:hover {
+        transform: translateY(-5px);
+    }
+    
+    .details {
+        margin-top: 15px;
+    }
+    
+    .social-icons {
+        margin-top: 15px;
+    }
+    
+    .social-icons a {
+        display: inline-block;
+        margin-right: 8px;
+    }
+    
+    .social-icons img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .developer h3 {
+        text-align: center;
+        color: #000;
+        font-family: Montserrat;
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .developer p {
+        text-align: center;
+        color: #000;
+        font-family: Montserrat;
+        font-size: 16px;
     }
 
     .footer {
@@ -176,8 +209,52 @@ body {
         text-align: center;
         color: #fff;
       }
-      
-    .content div:nth-child(3) {
-        width: 100%; 
-        text-align: center; 
+    
+
+    @media only screen and (max-width: 768px) {
+        .navbar {
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    
+        .navbar ul {
+            flex-direction: column;
+        }
+    
+        .navbar ul li {
+            margin: 10px 0;
+        }
+    
+        .user-dropdown {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    
+        .user-dropdown-content {
+            right: initial;
+            left: 0; 
+        }   
+        
+    }
+    
+      @media screen and (max-width: 600px) {
+      .nav.responsive {position: relative;}
+      .nav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .nav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+      .nav.responsive .dropdown {float: none;}
+      .nav.responsive .dropdown-link {position: relative;}
+      .nav.responsive .dropdown .drop-btn {
+        display: block;
+        width: 100%;
+        text-align: left;
+      }
     }
