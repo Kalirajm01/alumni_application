@@ -245,6 +245,13 @@ body {
     font-size: 14px;
   }
   
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 16px;
+  }
+
   .view-button {
     background: linear-gradient(to right, #53448C, #62A3DA);
     color: #fff;
