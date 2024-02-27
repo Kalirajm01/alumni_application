@@ -2,6 +2,7 @@
 body {
     margin: 0;
     font-family: Montserrat;
+    background: #EEEEFF;
 }
 
 .navbar {
@@ -154,200 +155,152 @@ body {
     color: #fff;
   }
 
-.container {
+  .container {
     position: relative;
-}
-
-.heading {
-    position: absolute;
-    top: 0;
-    right: 10;
-    margin: 10px;
-    color: #212529;
-    font-family: Montserrat;
-    font-weight: bold;
-    font-size: 32px;
-}
-
-.flex-container {
-    display: flex;
-    max-width: 100%;
-    flex-wrap: nowrap; 
-    overflow-x: auto;
-    padding: 20px;
-}
-
-.item {
-    flex: 0 0 auto; 
-    width: calc(20% - 20px); 
-    margin-right: 20px; 
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    white-space: normal; 
+    width: 100%;
+    height: 52vh;
     overflow: hidden;
 }
 
-.item-image {
-    width: 100%;
-    height: auto;
+.job-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.job {
+    width: calc(20% - 50px); /* Adjust width for responsiveness */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.item-title {
-    font-size: 18px;
-    margin-bottom: 10px;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
 }
 
-.item-location {
+.job:hover {
+    transform: scale(1.05); 
+}
+
+.job img {
+    width: 100%;
+    height: auto; 
+    border-radius: 5px; 
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .job {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .job {
+        width: calc(100% - 20px); 
+    }
+}
+
+
+.event-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  
+  .event {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: calc(30% - 40px);
+    margin: 20px 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .event:hover {
+    transform: translateY(-5px);
+  }
+  
+  .event-info {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .event-title {
+    margin: 0;
+    font-family: Montserrat;
+    font-size: 16px;
+  }
+  
+  .event-location {
+    margin: 5px 0;
+    font-family: Montserrat;
     font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.view-button {
-    /* background-color: #67a0f8; */
-    background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
-
+  }
+  
+  .view-button {
+    background: linear-gradient(to right, #53448C, #62A3DA);
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    display: block; 
-    margin: 0 auto;
-}
-
-.view-button:hover {
-    background-color: #3b7ae9;
-}
-
-.welcome-section {
-    background-size: cover;
-    background-position: center;
-    height: 92vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    display: block;
     text-align: center;
-    color: #fff;
-}
-
- .h1,
-.title-text {
-  text-align: center;
-  opacity: 1;
-  font-weight: bolder;
-  font-size: 100px;
-  font-family: Montserrat;
-  background: url("/img/title-scrolling.png");
-  background-repeat: repeat-x;
-  background-clip: inherit;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: animate 150s linear infinite;
-}
-@keyframes animate {
-    from {
-      background-position: 0 0;
-    }
-    /*use negative width if you want it to flow right to left else and positive for left to right*/
-    to {
-      background-position: -10000px 0;
-    }
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .view-button:hover {
+    background-color: #31b6c2e0;
+    transform: scale(.97); 
+  }
+  
+  .event-image {
+    flex: 1;
+  }
+  
+  .event-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
   }
 
-.title{
-    color: black;
-}
-
-.title-jobs-lists{
-     width: 45%;
-     float:left;
-     font-size: 34px;
-     font-weight: 700;
-     text-align: start;
-     padding-left: 5%;
-}
-
-
-
-.title-jobs-lists1{
-
-     width: 40%; 
-     float:right;
-     font-size: 24px;
-     font-weight: 400;
-     text-align: end;
-     padding-right: 10%;
-     padding-top: 15px;
-     margin-top: 5px;
-     margin-bottom: 5px;
-     
-}
-.lists{
-    padding-top: 120px;
-    align-items: center;
-}
-.left-list {
-    float: left;
-    padding: 10px;
-    width: 550px;
-    height: 350px;
-    background: #D9D9D9; 
-    border-radius: 20px; 
-    border: 5px #0F5CBF solid;
-    margin: 80px;
-}  
-  .lists:after {
-    content: "";
-    clear: both;
+  .event:nth-child(n + 5) {
+    display: none;
   }
-.jobs{
-    width: fit-content;
+  
+
+.gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, #53448C, #5412877e);
+    animation: 5s ease infinite;
 }
 
-.button{
-    width: fit-content;
-    padding-top: 290px;
-    padding-left: 420px;
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 2em;
 }
 
-.button1{
-     width: 120px; 
-     height: 50px; 
-     background: #0F5CBF; 
-     border-radius: 20px;
-     color: white;
-     top: 100px;
-     bottom: 0;   
-    
-}
-
-@media only screen and (max-width:1500px) and (min-width:1300px){
-    .left-list{
-        margin: 30%;
-        margin-top: 25px;
-        margin-bottom: 0px;
-    }
-    
-}
-
-@media only screen and (max-width: 1300px)and (min-width:240px){
-    .left-list {
-        margin: 20%;
-        margin-top: 25px;
-        margin-bottom: 0px;
-      }   
-}
-
-
-/* @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .navbar {
         height: auto;
         flex-direction: column;
@@ -372,7 +325,7 @@ body {
         left: 0; 
     }   
     
-} */
+}
 
   @media screen and (max-width: 600px) {
   .nav.responsive {position: relative;}

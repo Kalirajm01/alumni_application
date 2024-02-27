@@ -242,6 +242,80 @@ h2 {
     background-color: #f3f3f7;
 }
 
+
+/* Container */
+.container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Message Box */
+.message-box {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Input Field */
+.input-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* WhatsApp Button */
+.whatsapp {
+    background-color: #25D366;
+}
+
+/* Email Button */
+.email {
+    background-color: #007bff;
+}
+
+/* Animation */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .message-box {
+        padding: 10px;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .navbar {
         height: auto;
