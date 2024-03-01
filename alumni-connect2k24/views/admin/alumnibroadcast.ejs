@@ -58,12 +58,39 @@
     displayMessage(from, message);
 }
 
-function displayMessage(from, message) {
-    var messageDisplay = document.getElementById("messageDisplay");
-    var newMessage = document.createElement("div");
-    newMessage.classList.add("message");
-    newMessage.innerHTML = `<strong>${from}:</strong> ${message}`;
-    messageDisplay.appendChild(newMessage);
+function broadcastMessage() {
+    const from = document.getElementById('fromInput').value;
+    const role = document.getElementById('role').value;
+    const message = document.getElementById('messageInput').value;
+
+    // Perform validation and error handling as needed
+
+    // Send message via Twilio's WhatsApp API
+    const url = 'https://conversations.twilio.com/v1/Conversations/CH32205a380ef94119b23bea7382396300/Messages';
+    const data = {  
+        from: from,
+        role: role,
+        message: message
+    };
+
+    // Perform a POST request to your backend API endpoint
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle success response
+        document.getElementById('messageDisplay').innerText = data.message;
+    })
+    .catch(error => {
+        // Handle error
+        console.error('Error:', error);
+        document.getElementById('messageDisplay').innerText = 'An error occurred while broadcasting the message.';
+    });
 }
 
 

@@ -170,6 +170,8 @@ body {
 
 .job {
     width: calc(20% - 50px);
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -215,6 +217,7 @@ body {
     display: flex;
     align-items: center;
     padding: 10px;
+    background-color: #fff;
     border: 1px solid #ccc;
     width: calc(30% - 40px);
     margin: 20px 10px;
