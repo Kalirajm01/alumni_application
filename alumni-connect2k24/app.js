@@ -274,56 +274,53 @@ app.post('/signup', (req, res) => {
     });
   });
 
-  // Signin route
+// Signin route
 app.post('/signin', (req, res) => {
-    const { username, password } = req.body;
-  
-    // Query the database to find the user by username
-    const sql = 'SELECT * FROM users WHERE username = ?';
-    connection.query(sql, [username], (err, results) => {
-      if (err) {
-        console.error('Error logging in:', err);
-        return res.status(500).send('Internal server error');
-      }
-  
-      // Check if user exists
-      if (results.length === 0) {
-        return res.status(404).send('User not found');
-      }
-  
-      const user = results[0];
-  
-      // Check if password is correct
-      if (user.password !== password) {
-        return res.status(401).send('Invalid password');
-      }
-  
-      // Determine the user's role and redirect accordingly
-      switch (user.role) {
-        case 'student':
-          res.redirect('/student');
+  const { username, password } = req.body;
+
+  // Query the database to find the user by username
+  const sql = 'SELECT * FROM users WHERE username = ?';
+  connection.query(sql, [username], (err, results) => {
+    if (err) {
+      console.error('Error logging in:', err);
+      return res.status(500).send('Internal server error');
+    }
+
+    // Check if user exists
+    if (results.length === 0) {
+      return res.status(404).send('User not found');
+    }
+
+    const user = results[0];
+
+    // Check if password is correct
+    if (user.password !== password) {
+      return res.status(401).send('Invalid password');
+    }
+
+    // Redirect to the corresponding user page and pass the username
+    switch (user.role) {
+      case 'student':
+        res.render('student/student', { username: username });
+        break;
+      case 'alumni':
+        res.render('alumni/alumni', { username: username });
+        break;
+      case 'faculty':
+        res.render('faculty/faculty', { username: username });
+        break;
+      case 'admin':
+        res.render('admin/admin', { username: username });
+        break;
+      case 'executive':
+          res.render('executive/executive', { username: username });
           break;
-        case 'alumni':
-          res.redirect('/alumni');
-          break;
-        case 'faculty':
-          res.redirect('/faculty');
-          break;
-        case 'admin':
-          res.redirect('/admin');
-          break;
-        case 'executive':
-            res.redirect('/executive');
-            break;
-        case 'Executive':
-            res.redirect('/executive');
-            break;
-        default:
-          res.redirect('/');
-          break;
-      }
-    });
+      default:
+        res.redirect('/');
+        break;
+    }
   });
+});
 
 //DevOps Page route
 app.get('/devops', (req, res) => {
