@@ -483,7 +483,7 @@ app.get('/scholarship', (req, res) => {
 
 // Jobs/Internships Page route
 app.get('/jobs', (req, res) => {
-  res.render('pages/jobs', row);
+  res.render('pages/jobs');
 });
 
 // About Page route
