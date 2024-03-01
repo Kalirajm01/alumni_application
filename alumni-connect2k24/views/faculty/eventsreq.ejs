@@ -12,7 +12,7 @@
     <div class="container">
         <div class="event-form">
           <h2>Create an Event</h2>
-          <form action="#" method="post">
+          <form action="/submit-form" method="post" enctype="multipart/form-data"> <!-- Make sure to include enctype for file uploads -->
             <div class="form-group">
               <label for="eventName"><strong>Event Name:</strong></label>
               <input type="text" id="eventName" name="eventName" required>

@@ -193,6 +193,7 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const multer = require('multer');
 const PORT = process.env.PORT || 4000;
 app.use(express.static('public'));
 
@@ -377,6 +378,25 @@ app.get('/faculty', (req, res) => {
 // Faculty Event Upload Page route
 app.get('/eventsreq', (req, res) => {
   res.render('faculty/eventsreq');
+});
+
+
+const upload = multer({ dest: 'uploads/' });
+app.post('/submit-form', upload.single('eventImage'), (req, res) => {
+  const { eventName, eventLocation, eventDate, eventTime, department, contactDetails, description } = req.body;
+  const eventImage = req.file.filename; // Multer renames the file and adds a "filename" property
+
+  // Insert form data into MySQL
+  const sql = 'INSERT INTO events (eventName, eventLocation, eventDate, eventTime, department, contactDetails, description, eventImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+  connection.query(sql, [eventName, eventLocation, eventDate, eventTime, department, contactDetails, description, eventImage], (err, result) => {
+    if (err) {
+      console.error('Error inserting data into MySQL:', err);
+      res.status(500).send('Error inserting data into MySQL');
+      return;
+    }
+    console.log('Data inserted into MySQL');
+    res.status(200).send('Data inserted into MySQL');
+  });
 });
 
 // Faculty Requirements Request Page route
