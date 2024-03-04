@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/achat.css">
+<link rel="icon" href="img/logo.png" type="image/x-icon">
+<title>Student Chat Page</title>
+</head>
+<body>
+<%- include('header/header.ejs') %>
+
+<div class="content">
+    <div class="message-board">
+        <h2>Chat with Student</h2>
+        <div class="message-form">
+          <textarea id="message" placeholder="Type your message here..." required></textarea>
+          <div class="filter-options">
+            <label for="filter-sender">Filter by Batch:</label>
+            <select id="filter-sender">
+              <option value="all">All</option>
+              <option value="2026">2022 - 2026</option>
+              <option value="2025">2021 - 2025</option>
+              <option value="2024">2020 - 2024</option>
+              <option value="2023">2019 - 2023</option>
+              <option value="2022">2018 - 2022</option>
+              <option value="2021">2017 - 2021</option>
+              <option value="2020">2016 - 2020</option>
+              <option value="2019">2015 - 2019</option>
+              <option value="2018">2014 - 2018</option>
+            </select>
+          
+            <label for="filter-department">Filter by Department:</label>
+            <select id="filter-department">
+              <option value="all">All</option>
+              <option value="aids">AIDS</option>
+              <option value="csbs">CSBS</option>
+              <option value="cse">CSE</option>
+              <option value="civil">Civil</option>
+              <option value="ece">ECE</option>
+              <option value="eee">EEE</option>
+              <option value="mech">Mech</option>
+            </select>
+          
+            <button id="send-button">Apply Filter</button>
+          </div>
+          <button id="send-button">Send</button>
+        </div>
+        <div class="message-list">
+          <!-- Message list will be populated dynamically -->
+        </div>
+      </div>
+      
+
+</div>
+
+<div class="footer">
+  &copy; 2024 Copyright: SDC PSG iTech
+  <br>
+  <a style="color: blue; font-size: 16px;; font-weight: bold;" href="/devops">DevOps Team</a>
+</div>
+
+</body>
+</html>
+
+<script>
+    document.getElementById('send-button').addEventListener('click', function() {
+  var messageInput = document.getElementById('message');
+  var messageText = messageInput.value.trim();
+  
+  if (messageText !== '') {
+    var messageList = document.querySelector('.message-list');
+    var newMessage = document.createElement('div');
+    newMessage.classList.add('message', 'fade-in');
+    newMessage.innerHTML = '<p>' + messageText + '</p><small>' + getTimeStamp() + '</small>';
+    messageList.prepend(newMessage);
+    
+    // Clear the message input
+    messageInput.value = '';
+  } else {
+    alert('Please enter a message.');
+  }
+});
+
+// Function to get timestamp
+function getTimeStamp() {
+  var now = new Date();
+  var date = now.toLocaleDateString();
+  var time = now.toLocaleTimeString();
+  return date + ' ' + time;
+}
+
+</script>

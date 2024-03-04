@@ -192,6 +192,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 const mysql = require('mysql');
 const multer = require('multer');
 const PORT = process.env.PORT || 4000;
@@ -246,34 +247,6 @@ app.get('/', (req, res) => {
   res.render('signin');
 });
 
-//Forget Password Page route
-app.get('/forget', (req, res) => {
-  res.render('forget');
-});
-
-//Signup Page route
-app.get('/signup', (req, res) => {
-  res.render('signup');
-});
-
-// Signup route
-app.post('/signup', (req, res) => {
-    // Extract signup data from request body
-    const { username, email, password, phone, role } = req.body;
-  
-    // Insert the signup data into MySQL database
-    const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
-    connection.query(sql, [username, email, password, phone, role], (err, result) => {
-      if (err) {
-        console.error('Error signing up:', err);
-        return res.status(500).send('Internal server error');
-      }
-      console.log('User signed up successfully');
-      // Redirect to the signin page
-      res.redirect('/');
-    });
-  });
-
 // Signin route
 app.post('/signin', (req, res) => {
   const { username, password } = req.body;
@@ -322,6 +295,76 @@ app.post('/signin', (req, res) => {
   });
 });
 
+//Forget Password Page route
+app.get('/forget', (req, res) => {
+  res.render('forget');
+});
+
+app.post('/forget', (req, res) => {
+  const { email } = req.body;
+  sendPasswordResetEmail(email);
+  res.redirect('/');
+});
+
+// Function to send password reset email
+function sendPasswordResetEmail(email) {
+  // Create a Nodemailer transporter using SMTP transport
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'alumnitest2024@gmail.com',
+      pass: 'Alumni@1234' 
+    }
+  });
+
+  let token = generateToken();
+
+  let mailOptions = {
+    from: 'alumnitest2024@gmail.com',
+    to: email,
+    subject: 'Password Reset',
+    text: 'Click the following link to reset your password: http://yourdomain.com/reset/${token}'
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('Error sending email:', error);
+    } else {
+      console.log('Password reset email sent:', info.response);
+    }
+  });
+}
+
+function generateToken() {
+  return 'random-token';
+}
+
+module.exports = sendPasswordResetEmail;
+
+
+//Signup Page route
+app.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+// Signup route
+app.post('/signup', (req, res) => {
+    // Extract signup data from request body
+    const { username, email, password, phone, role } = req.body;
+  
+    // Insert the signup data into MySQL database
+    const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
+    connection.query(sql, [username, email, password, phone, role], (err, result) => {
+      if (err) {
+        console.error('Error signing up:', err);
+        return res.status(500).send('Internal server error');
+      }
+      console.log('User signed up successfully');
+      // Redirect to the signin page
+      res.redirect('/');
+    });
+  });
+
 //DevOps Page route
 app.get('/devops', (req, res) => {
   res.render('pages/devops');
@@ -332,19 +375,19 @@ app.get('/student', (req, res) => {
   res.render('student/student');
 });
 
-// Student Chat Page route
+// Student Chat Split Page route
+app.get('/schat', (req, res) => {
+  res.render('student/schat');
+});
+
+// Student to Student Chat Page route
 app.get('/chat', (req, res) => {
   res.render('student/studentchat');
 });
 
-// Admin Homepage Page route
-app.get('/admin', (req, res) => {
-  res.render('admin/admin');
-});
-
-// Alumni Broadcast Page route
-app.get('/alumnibroadcast', (req, res) => {
-  res.render('admin/alumnibroadcast');
+// Student to Alumni Chat Page route
+app.get('/achat', (req, res) => {
+  res.render('student/achat');
 });
 
 // Student Broadcast Page route
@@ -411,14 +454,44 @@ app.get('/alumni', (req, res) => {
   res.render('alumni/alumni');
 });
 
+// Alumni About Page route
+app.get('/aabout', (req, res) => {
+  res.render('alumni/about');
+});
+
+// Alumni to Student Chat Page route
+app.get('/aevents', (req, res) => {
+  res.render('alumni/aevents');
+});
+
+// Admin Homepage Page route
+app.get('/admin', (req, res) => {
+  res.render('admin/admin');
+});
+
+// Alumni Broadcast Page route
+app.get('/alumnibroadcast', (req, res) => {
+  res.render('admin/alumnibroadcast');
+});
+
 // Alumni Scholarship Fund Page route
 app.get('/fund', (req, res) => {
   res.render('alumni/scholarshipfund');
 });
 
-// Alumni Chat Page route
+// Alumni Chat Split Page route
+app.get('/aschat', (req, res) => {
+  res.render('alumni/aschat');
+});
+
+// Alumni to Alumni Chat Page route
 app.get('/alumnichat', (req, res) => {
   res.render('alumni/alumnichat');
+});
+
+// Alumni to Student Chat Page route
+app.get('/aachat', (req, res) => {
+  res.render('alumni/aachat');
 });
 
 // Alumni Internship/Jobs Posting Page route

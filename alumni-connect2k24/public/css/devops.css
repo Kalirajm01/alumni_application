@@ -154,7 +154,7 @@ body {
     }
 
     .developer img {
-        max-width: 60%;
+        max-width: 70%;
         height: 45%;
     }
     
@@ -194,6 +194,20 @@ body {
         color: #000;
         font-family: Montserrat;
         font-size: 16px;
+    }
+
+    .developers1 li {
+        color: #000;
+        font-family: Montserrat;
+        font-size: 20px;
+        margin-left: 40%;
+    }
+
+    .developers1 h3 {
+        color: #000;
+        font-family: Montserrat;
+        font-size: 20px;
+        margin-left: 37%;
     }
 
     .footer {

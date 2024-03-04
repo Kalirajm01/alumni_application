@@ -162,46 +162,13 @@ body {
     overflow: hidden;
 }
 
-.job-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.job {
-    width: calc(20% - 50px);
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
-
-.job:hover {
-    transform: scale(1.05); 
-}
-
-.job img {
-    width: 100%;
-    height: auto; 
-    border-radius: 5px; 
-    margin-bottom: 10px;
-}
-
-
-@media (max-width: 768px) {
-    .job {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    .job {
-        width: calc(100% - 20px); 
-    }
+.heading h1 {
+  margin-top: 5;
+  text-align: center;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 38px;
+  font-weight: bold;
 }
 
 

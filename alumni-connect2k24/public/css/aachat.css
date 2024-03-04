@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    margin: 0;
+    font-family: Montserrat;
+    background: #EEEEFF;
+}
+
+.navbar {
+    background: #4F4663;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; 
+    padding: 0 20px; 
+}
+
+.logo-text {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    margin-left: 4%;
+}
+
+.logo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin-left: 30%;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 10px;
+    font-family: Montserrat;
+    font-size: 18px;
+    display: block;
+    font-size: medium;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #0058b649; 
+    border-radius: 10px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    color: white;
+    padding: 14px 10px; 
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.user-dropdown {
+    position: relative;
+    margin-left: 20px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 60px; 
+    right: 0; 
+}
+
+.user-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.user-dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-top: 2%;
+  width: 100%;
+  background-color: #4F4663;
+  font-family: Montserrat;
+  font-size: 16px;
+  padding: 10px 0;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+
+
+.message-board {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-top: 10px;
+  margin-left: 10%;
+  width: 75%;
+}
+
+.message-board h2 {
+  text-align: center;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.message-form textarea {
+  width: 50%;
+  height: 23vh;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: Montserrat;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.filter-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filter-options label {
+  margin-right: 10px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.filter-options select {
+  padding: 8px;
+  border-radius: 5px;
+  font-family: Montserrat;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+#send-button {
+  background: linear-gradient(to right, #53448C, #62A3DA);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 5%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Montserrat;
+  font-size: 16px;
+  width: 15%;
+  display: block;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s; 
+}
+
+#send-button:hover {
+  background-color: #31b6c2e0;
+  transform: scale(.97);
+}
+
+.message-list {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+  height: 24vh;
+  margin-top: 2%;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.message p {
+  margin: 0;
+}
+
+/* Animation */
+.message.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+  .message-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .filter-options {
+    flex-direction: column;
+  }
+  
+  .filter-options select {
+    margin-top: 10px;
+  }
+  
+  #send-button {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .message-board {
+    padding: 10px;
+  }
+  
+  .message-form textarea {
+    padding: 8px;
+  }
+  
+  .filter-options select {
+    padding: 6px;
+  }
+  
+  #send-button {
+    padding: 8px 16px;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+      height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .navbar ul {
+      flex-direction: column;
+  }
+
+  .navbar ul li {
+      margin: 10px 0;
+  }
+
+  .user-dropdown {
+      margin-left: 0;
+      margin-top: 10px;
+  }
+
+  .user-dropdown-content {
+      right: initial;
+      left: 0; 
+  }   
+  
+}
+
+@media screen and (max-width: 600px) {
+.nav.responsive {position: relative;}
+.nav.responsive a.icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.nav.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+}
+.nav.responsive .dropdown {float: none;}
+.nav.responsive .dropdown-link {position: relative;}
+.nav.responsive .dropdown .drop-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+}

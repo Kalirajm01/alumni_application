@@ -6,146 +6,112 @@
 <link rel="icon" href="img/logo.png" type="image/x-icon">
 <title>Landing Page</title>
   <style>
-    /* body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    } */
-
-    body {
-    background: linear-gradient(120deg, #d4fc79, #96e6a1, #4ecdc4, #556270);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
+
+#launchScreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #4CAF50, #4CAF50, #2196F3, #2196F3);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.launchContent {
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+#launchButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  background-color: #FF5722;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#launchButton:hover {
+  background-color: #E64A19;
+  transform: scale(1.05);
+}
+
+.countdown {
+  font-size: 5rem; 
+  color: white;
+  font-weight: bolder;
+  margin-top: 20px;
+  animation: countdownAnimation 10s linear forwards;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
 
 @keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-    .hero-section {
-      height: 100vh;
-      /* background: linear-gradient(to bottom right, #007BFF, #4F81FD); */
-      /* background:  linear-gradient(to right, #53448C, #62A3DA); */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-content {
-      z-index: 1;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    a {
-        text-decoration: none;
-        /* color: black; */
-        color: white;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-    }
-    .cta-btn {
-      /* background-color: white; */
-
-      background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .cta-btn:hover {
-      background-color: white;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    }
-    .bg-shapes {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .bg-shapes img {
-      position: absolute;
-      animation: animate 20s linear infinite alternate;
-    }
-    @keyframes animate {
-      from {
-        transform: translateY(-100px);
-      }
-      to {
-        transform: translateY(100px);
-      }
-    }
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-      .cta-btn {
-        font-size: 1rem;
-        padding: 8px 16px;
-      }
-    }
-
-    .button {
-    background: linear-gradient(120deg, #d4fc79, #96e6a1, #4ecdc4, #556270);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.5s;
-    animation: gradientAnimation 15s ease infinite;
+@keyframes countdownAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.button:hover {
-    background: linear-gradient(120deg, #556270, #4ecdc4, #96e6a1, #d4fc79);
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
   </style>
 </head>
 <body>
 
-  <section class="hero-section">
-    <div class="hero-content">
-      <h1></h1>
-      <h1>Welcome to Alumni Connect Application</h1>
-      <button style="color: white;" class="button"><a href="/">Get Started</a></button>
+  <div id="launchScreen">
+    <div class="launchContent">
+      <h1>Welcome to PSG iTech Alumni Association</h1>
+      <button id="launchButton">Launch</button>
+      <div id="countdown" class="countdown">10</div>
     </div>
-  </section>
+  </div>
 
 </body>
 </html>
+
+<script>
+document.getElementById("launchButton").addEventListener("click", function() {
+  var countdownElement = document.getElementById("countdown");
+  countdownElement.style.opacity = "1";
+  var seconds = 10;
+  
+  var countdownInterval = setInterval(function() {
+    seconds--;
+    countdownElement.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(countdownInterval);
+      setTimeout(function() {
+        window.location.href = "/";
+      }, 1000);
+    }
+  }, 1000);
+});
+
+</script>

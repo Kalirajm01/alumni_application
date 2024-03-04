@@ -135,6 +135,15 @@ body {
 .user-dropdown:hover .user-dropdown-content {
     display: block;
 }
+
+.heading h1 {
+  margin-top: 5;
+  text-align: center;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 38px;
+  font-weight: bold;
+}
   .events-container {
     display: flex;
     flex-wrap: wrap;
@@ -147,6 +156,7 @@ body {
     margin: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    background-color: #fff;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -179,6 +189,7 @@ body {
     margin: 5px 0;
     font-family: Montserrat;
     font-size: 16px;
+    text-align: justify;
   }
 
   .event-details a {
