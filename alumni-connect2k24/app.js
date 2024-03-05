@@ -380,6 +380,11 @@ app.get('/schat', (req, res) => {
   res.render('student/schat');
 });
 
+// Student Connection Page route
+app.get('/sconnection', (req, res) => {
+  res.render('student/sconnection');
+});
+
 // Student to Student Chat Page route
 app.get('/chat', (req, res) => {
   res.render('student/studentchat');
@@ -487,6 +492,11 @@ app.get('/aschat', (req, res) => {
 // Alumni to Alumni Chat Page route
 app.get('/alumnichat', (req, res) => {
   res.render('alumni/alumnichat');
+});
+
+// Alumni Connection Page route
+app.get('/aconnection', (req, res) => {
+  res.render('alumni/aconnection');
 });
 
 // Alumni to Student Chat Page route

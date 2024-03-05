@@ -40,7 +40,7 @@
 </html>
 
 <script>
-  document.getElementById("signin-form").addEventListener("submit", function(event) {
+document.getElementById("signin-form").addEventListener("submit", function(event) {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var errorMessage = document.getElementById("error-message");
@@ -53,6 +53,6 @@
     }
     errorMessage.textContent = "";
     errorMessage.style.display = "none";
-});
+  });
 
 </script>

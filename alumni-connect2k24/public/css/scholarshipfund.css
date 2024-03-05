@@ -189,14 +189,12 @@ body {
     color: #fff;
     border: none;
     padding: 10px 20px;
-    margin-left: 0%;
     border-radius: 5px;
     cursor: pointer;
     font-family: Montserrat;
     font-size: 16px;
-    width: 25%;
+    margin-top: 1%;
     display: block;
-    text-align: center;
     transition: background-color 0.3s, transform 0.2s; 
 }
 
@@ -204,76 +202,6 @@ body {
     background-color: #31b6c2e0;
     transform: scale(.97);
 }
-
-.students-required {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-top: 30px;
-}
-
-.students-required h2 {
-    text-align: center;
-    color: #000;
-    font-family: Montserrat;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.students-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.student {
-    font-family: Montserrat;
-    font-size: 16px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    max-width: 300px;
-}
-
-.student .info {
-    font-family: Montserrat;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-}
-
-.student .info span {
-    font-family: Montserrat;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.student .info span.year {
-    font-family: Montserrat;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.student .info span.department {
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: italic;
-}
-
-.student .info span.name {
-    font-family: Montserrat;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.student .info span.roll-number {
-    font-family: Montserrat;
-    font-size: 16px;
-    font-style: italic;
-}
-
-
 
 .footer {
     position: relative;
@@ -315,3 +243,298 @@ body {
         left: 0; 
     }
 }
+
+.filter-button {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+  }
+  
+  .filter-button.active {
+    background-color: #00bfff; /* Change to your desired active color */
+  }
+  
+
+
+
+
+
+
+  
+  .container1 {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    margin-top: 2%;
+    margin-left: 30%;
+    margin-bottom: 2%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: slideInFromLeft 0.5s ease-out forwards;
+  }
+
+  h2 {
+    text-align: center;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: Montserrat;
+    font-size: 16px;
+    color: #4D4D4D;
+    font-weight: bolder;
+  }
+
+  input[type="text"],
+  textarea,
+  select {
+    width: 98%;
+    padding: 10px;
+    border-radius: 8px;
+    color: #555;
+    font-family: Montserrat;
+    font-size: 16px;
+    box-shadow: 1px #000000;
+    border: 1px solid #cbcadc;
+    background-color: #f3f3f7;
+    transition: border-color 0.3s; 
+  }
+
+  input[type="submit"] {
+    background: linear-gradient(to right, #53448C, #62A3DA);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 35%;
+    border-radius: 5px;
+    margin-top: 3%;
+    cursor: pointer;
+    font-family: Montserrat;
+    font-size: 16px;
+    width: 20%;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s; 
+  }
+
+  input[type="submit"]:hover {
+    background-color: #31b6c2e0;
+    transform: scale(.97); 
+  }
+
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(to right, #53448C, #62A3DA);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Montserrat;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s; 
+  }
+
+  .back-button:hover {
+    background-color: #31b6c2e0;
+    transform: scale(.97); 
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .container1 {
+      width: 90%;
+    }
+  }
+
+  .container2 {
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .event-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+    animation: slideInFromLeft 0.5s ease-out forwards;
+  }
+  .event-form h2 {
+    text-align: center;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: Montserrat;
+    font-size: 16px;
+    color: #4D4D4D;
+    font-weight: bolder;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 98%;
+    padding: 10px;
+    border-radius: 8px;
+    color: #555;
+    font-family: Montserrat;
+    font-size: 16px;
+    box-shadow: 1px #000000;
+    border: 1px solid #cbcadc;
+    background-color: #f3f3f7;
+    transition: border-color 0.3s; 
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #000000;
+  }
+
+  .btn-request {
+    background: linear-gradient(to right, #53448C, #62A3DA);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 35%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Montserrat;
+    font-size: 16px;
+    width: 20%;
+    display: block;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s; 
+  }
+  
+  .btn-request:hover {
+    background-color: #31b6c2e0;
+    transform: scale(.97); 
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+
+  .dropdown-select:hover,
+  .dropdown-select:focus {
+    border-color: #67a0f8;
+  }
+
+  .dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1;
+    display: none;
+  }
+
+  .dropdown-select:focus + .dropdown-options {
+    display: block;
+  }
+
+  .dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .dropdown-option:hover {
+    background-color: #f2f2f2;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .container2 {
+      padding: 20px;
+    }
+  }
+
+   
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+
+  @media screen and (min-width: 768px) {
+    .event-form {
+      width: 70%;
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .event-form {
+      width: 50%;
+    }
+  }

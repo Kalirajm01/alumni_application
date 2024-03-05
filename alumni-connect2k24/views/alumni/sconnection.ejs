@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/aconnection.css">
+<link rel="icon" href="img/logo.png" type="image/x-icon">
+<title>Alumni Connection Page</title>
+</head>
+<body>
+    <%- include('header/navbar.ejs') %>
+    <div class="filter">
+        <label for="filter">Filter by:</label>
+        <select id="filter">
+          <option value="all">All</option>
+          <option value="connections">Alumni</option>
+          <option value="people">Students</option>
+        </select>
+        <input type="text" id="search" placeholder="Search...">
+      </div>
+    
+      <div class="profile-card">
+        <img src="img/download.png" alt="Profile Image" class="profile-image">
+        <div class="profile-details">
+          <h2 class="name">Sample</h2>
+          <p class="position">Software Engineer</p>
+          <button class="connect-button">Connect</button>
+        </div>
+      </div>
+
+<div class="footer">
+    &copy; 2024 Copyright: SDC PSG iTech
+    <br>
+    <a style="color: blue; font-size: 16px;; font-weight: bold;" href="/devops">DevOps Team</a>
+  </div>
+
+</body>
+</html>

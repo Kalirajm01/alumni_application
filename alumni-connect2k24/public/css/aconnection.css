@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    margin: 0;
+    font-family: Montserrat;
+    background: #EEEEFF;
+}
+
+.navbar {
+    background: #4F4663;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; 
+    padding: 0 20px; 
+}
+
+.logo-text {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    margin-left: 4%;
+}
+
+.logo-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 15px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin-left: 43%;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 10px;
+    font-family: Montserrat;
+    font-size: 18px;
+    display: block;
+    font-size: medium;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background-color: #0058b649; 
+    border-radius: 10px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    color: white;
+    padding: 14px 10px; 
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.user-dropdown {
+    position: relative;
+    margin-left: 20px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 60px; 
+    right: 0; 
+}
+
+.user-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.user-dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+    display: block;
+}
+
+.content {
+    padding: 20px;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4F4663;
+    font-family: Montserrat;
+    font-size: 16px;
+    margin-top: 2%;
+    padding: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+  }
+
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .user-dropdown {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .user-dropdown-content {
+        right: initial;
+        left: 0; 
+    }
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .name {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Montserrat;
+    margin-bottom: 10px;
+  }
+  
+  .position {
+    font-size: 18px;
+    font-family: Montserrat;
+    margin-bottom: 20px;
+  }
+  
+  .connect-button {
+    padding: 10px 20px;
+    background-color: #0077b5;
+    font-family: Montserrat;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .connect-button:hover {
+    background-color: #005f91;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-card {
+      max-width: 100%;
+    }
+  }
+
+  .filter {
+    margin-bottom: 20px;
+    margin-top: 2%;
+  }
+  
+  .filter label {
+    font-weight: bold;
+    font-family: Montserrat;
+    margin-right: 10px;
+  }
+  
+  .filter select {
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .filter input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  
