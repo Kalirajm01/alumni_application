@@ -136,49 +136,27 @@ body {
     display: block;
 }
 
-.content {
-    padding: 20px;
+.heading h1 {
+  margin-top: 5;
+  text-align: center;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 38px;
+  font-weight: bold;
 }
-
-
-.footer {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #4F4663;
-    font-family: Montserrat;
-    font-size: 16px;
-    padding: 10px 0;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-  }
-
-  .container {
-    position: relative;
-    width: 100%;
-    height: 52vh;
-    overflow: hidden;
-}
-
-.event-container {
+  .events-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
   }
   
   .event {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: #fff;
+    width: 300px;
+    margin: 20px;
     border: 1px solid #ccc;
-    width: calc(30% - 40px);
-    margin: 20px 10px;
-    border-radius: 5px;
+    border-radius: 8px;
+    background-color: #fff;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -188,31 +166,40 @@ body {
     transform: translateY(-5px);
   }
   
-  .event-info {
-    flex: 1;
-    padding: 10px;
+  .event img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
   
-  .event-title {
-    margin: 0;
+  .event-details {
+    padding: 20px;
+  }
+  
+  .event-details h3 {
+    margin-top: 0;
+    text-align: center;
+    color: #000;
     font-family: Montserrat;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
   }
   
-  .event-location {
+  .event-details p {
     margin: 5px 0;
     font-family: Montserrat;
-    font-size: 14px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #fff;
-    font-family: Montserrat;
     font-size: 16px;
+    text-align: justify;
   }
 
-  .view-button {
+  .event-details a {
+    font-family: Montserrat;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 16px;
+  }
+  
+  .register-btn {
     background: linear-gradient(to right, #53448C, #62A3DA);
     color: #fff;
     border: none;
@@ -226,49 +213,12 @@ body {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
   
-  .view-button:hover {
+  .register-btn:hover {
     background-color: #31b6c2e0;
     transform: scale(.97); 
   }
   
-  .event-image {
-    flex: 1;
-  }
-  
-  .event-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 5px;
-  }
-
-  .event:nth-child(n + 5) {
-    display: none;
-  }
-  
-
-.gradient-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to left, #53448C, #5412877e);
-    animation: 5s ease infinite;
-}
-
-.text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    font-size: 2em;
-}
-
-@media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 768px) {
     .navbar {
         height: auto;
         flex-direction: column;
@@ -315,3 +265,17 @@ body {
     text-align: left;
   }
 }
+
+.footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4F4663;
+    font-family: Montserrat;
+    font-size: 16px;
+    padding: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+  }
