@@ -192,7 +192,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const nodemailer = require('nodemailer');
+const bcrypt = require('bcrypt');
 const mysql = require('mysql');
 const multer = require('multer');
 const PORT = process.env.PORT || 4000;
@@ -214,6 +218,13 @@ const connection = mysql.createConnection({
   database: 'alumni'
 });
 
+// Initialize MySQL connection pool
+const connection1 = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  database: 'alumni'
+});
+
 // Connect to MySQL
 connection.connect((err) => {
   if (err) {
@@ -225,6 +236,40 @@ connection.connect((err) => {
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Passport Local Strategy for authenticating users
+passport.use(new LocalStrategy(
+  { usernameField: 'email' },
+  (email, password, done) => {
+      // Query the database for the user
+      connection.query('SELECT * FROM users WHERE email = ?', [email], (err, rows) => {
+          if (err) { return done(err); }
+          if (!rows.length) {
+              return done(null, false, { message: 'Incorrect email.' });
+          }
+          const user = rows[0];
+          if (password !== user.password) {
+              return done(null, false, { message: 'Incorrect password.' });
+          }
+          return done(null, user);
+      });
+  }
+));
+
+// Passport serialization and deserialization
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  connection.query('SELECT * FROM users WHERE id = ?', [id], (err, rows) => {
+      done(err, rows[0]);
+  });
+});
+
 
 // Define routes
 //Demo Page route
@@ -249,50 +294,55 @@ app.get('/', (req, res) => {
 
 // Signin route
 app.post('/signin', (req, res) => {
-  const { username, password } = req.body;
+    const { username, password } = req.body;
 
-  // Query the database to find the user by username
-  const sql = 'SELECT * FROM users WHERE username = ?';
-  connection.query(sql, [username], (err, results) => {
-    if (err) {
-      console.error('Error logging in:', err);
-      return res.status(500).send('Internal server error');
-    }
+    const sql = 'SELECT * FROM users WHERE username = ?';
+    connection.query(sql, [username], (err, results) => {
+        if (err) {
+            console.error('Error logging in:', err);
+            return res.status(500).send('Internal server error');
+        }
 
-    // Check if user exists
-    if (results.length === 0) {
-      return res.status(404).send('User not found');
-    }
+        if (results.length === 0) {
+            return res.status(404).send('User not found');
+        }
 
-    const user = results[0];
+        const user = results[0];
 
-    // Check if password is correct
-    if (user.password !== password) {
-      return res.status(401).send('Invalid password');
-    }
+        // Compare hashed password
+        bcrypt.compare(password, user.password, (err, result) => {
+            if (err) {
+                console.error('Error comparing passwords:', err);
+                return res.status(500).send('Internal server error');
+            }
 
-    // Redirect to the corresponding user page and pass the username
-    switch (user.role) {
-      case 'student':
-        res.render('student/student', { username: username });
-        break;
-      case 'alumni':
-        res.render('alumni/alumni', { username: username });
-        break;
-      case 'faculty':
-        res.render('faculty/faculty', { username: username });
-        break;
-      case 'admin':
-        res.render('admin/admin', { username: username });
-        break;
-      case 'executive':
-          res.render('executive/executive', { username: username });
-          break;
-      default:
-        res.redirect('/');
-        break;
-    }
-  });
+            if (!result) {
+                return res.status(401).send('Invalid password');
+            }
+
+            // Redirect to the corresponding user page and pass the username
+            switch (user.role) {
+                case 'student':
+                    res.render('student/student', { username: username });
+                    break;
+                case 'alumni':
+                    res.render('alumni/alumni', { username: username });
+                    break;
+                case 'faculty':
+                    res.render('faculty/faculty', { username: username });
+                    break;
+                case 'admin':
+                    res.render('admin/admin', { username: username });
+                    break;
+                case 'executive':
+                    res.render('executive/executive', { username: username });
+                    break;
+                default:
+                    res.redirect('/');
+                    break;
+            }
+        });
+    });
 });
 
 //Forget Password Page route
@@ -300,70 +350,54 @@ app.get('/forget', (req, res) => {
   res.render('forget');
 });
 
-app.post('/forget', (req, res) => {
-  const { email } = req.body;
-  sendPasswordResetEmail(email);
-  res.redirect('/');
-});
+// //Signup Page route
+// app.get('/signup', (req, res) => {
+//   res.render('signup');
+// });
 
-// Function to send password reset email
-function sendPasswordResetEmail(email) {
-  // Create a Nodemailer transporter using SMTP transport
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'alumnitest2024@gmail.com',
-      pass: 'Alumni@1234' 
-    }
-  });
+// // Signup route
+// app.post('/signup', (req, res) => {
+//     // Extract signup data from request body
+//     const { username, email, password, phone, role } = req.body;
+  
+//     // Insert the signup data into MySQL database
+//     const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
+//     connection.query(sql, [username, email, password, phone, role], (err, result) => {
+//       if (err) {
+//         console.error('Error signing up:', err);
+//         return res.status(500).send('Internal server error');
+//       }
+//       console.log('User signed up successfully');
+//       // Redirect to the signin page
+//       res.redirect('/');
+//     });
+//   });
 
-  let token = generateToken();
-
-  let mailOptions = {
-    from: 'alumnitest2024@gmail.com',
-    to: email,
-    subject: 'Password Reset',
-    text: 'Click the following link to reset your password: http://yourdomain.com/reset/${token}'
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error);
-    } else {
-      console.log('Password reset email sent:', info.response);
-    }
-  });
-}
-
-function generateToken() {
-  return 'random-token';
-}
-
-module.exports = sendPasswordResetEmail;
-
-
-//Signup Page route
 app.get('/signup', (req, res) => {
   res.render('signup');
 });
 
 // Signup route
 app.post('/signup', (req, res) => {
-    // Extract signup data from request body
     const { username, email, password, phone, role } = req.body;
-  
-    // Insert the signup data into MySQL database
-    const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
-    connection.query(sql, [username, email, password, phone, role], (err, result) => {
-      if (err) {
-        console.error('Error signing up:', err);
-        return res.status(500).send('Internal server error');
-      }
-      console.log('User signed up successfully');
-      // Redirect to the signin page
-      res.redirect('/');
+    bcrypt.hash(password, 10, (err, hash) => {
+        if (err) {
+            console.error('Error hashing password:', err);
+            return res.status(500).send('Internal server error');
+        }
+
+        const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
+        connection.query(sql, [username, email, hash, phone, role], (err, result) => {
+            if (err) {
+                console.error('Error signing up:', err);
+                return res.status(500).send('Internal server error');
+            }
+            console.log('User signed up successfully');
+            res.redirect('/');
+        });
     });
-  });
+});
+
 
 //DevOps Page route
 app.get('/devops', (req, res) => {
@@ -565,6 +599,27 @@ app.get('/scholarship', (req, res) => {
 app.get('/jobs', (req, res) => {
   res.render('pages/jobs');
 });
+app.get('/jobs', async (req, res) => {
+  try {
+    const connection = await mysql.createConnection(dbConfig);
+    const [jobs] = await connection.query('SELECT * FROM jobs_internships');
+    await connection.end();
+
+    if (!jobs || jobs.length === 0) {
+      console.error('No jobs found');
+      return res.status(404).send('No jobs found');
+    }
+
+    res.render('pages/jobs', { jobs }); // Pass jobs to the template
+  } catch (error) {
+    console.error('Error fetching jobs:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
+
 
 // About Page route
 app.get('/about', (req, res) => {
