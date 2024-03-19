@@ -9,40 +9,26 @@
 </head>
 <body>
     <%- include('header/header.ejs') %>
-<div class="content">
-    <div class="container">
-        <div class="job-post">
-          <h2>Full Stack Developer</h2>
-          <p><strong>Company:</strong>ABC</p>
-          <p><strong>Location:</strong> New York, NY</p>
-          <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fermentum felis. Nulla facilisi. Duis non sem auctor, tempus elit id, ultricies tortor.</p>
-          <p><strong>Requirements:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fermentum felis. Nulla facilisi.</p>
-          <p><strong>Contact:</strong> John Doe (john.doe@example.com)</p>
-          <button class="apply-button">Apply</button>
+    <div class="content">
+      <div class="container">
+          <div class="job-post">
+                
+          <% data.forEach(item => { %>
+            <h1><%= item.title %></h1>
+            <p><strong>Company Name:</strong> <%= item.companyname %></p>
+            <p><strong>Job Type:</strong> <%= item.typeofpost %></p>
+            <p><strong>Location:</strong> <%= item.location %></p>
+            <p><strong>Requirements:</strong> <%= item.requirement %></p>
+            <p><strong>Descriptions:</strong> <%= item.descriptions %></p>
+            <p><strong>Department:</strong> <%= item.department %></p>
+            <p><strong>Last Date:</strong> <%= item.applybydate %></p>
+            <p><strong>Contact:</strong> <%= item.contact %></p>
+            <button class="apply-button" id="apply-button">Apply</button>
+        <% }); %>
+          </div>
         </div>
-      
-        <div class="job-post">
-          <h2>Marketing Intern</h2>
-          <p><strong>Company:</strong> ABC Marketing</p>
-          <p><strong>Location:</strong> Los Angeles, CA</p>
-          <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fermentum felis. Nulla facilisi. Duis non sem auctor, tempus elit id, ultricies tortor.</p>
-          <p><strong>Requirements:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fermentum felis. Nulla facilisi.</p>
-          <p><strong>Contact:</strong> Jane Smith (jane.smith@example.com)</p>
-          <button class="apply-button">Apply</button>
-        </div>
-      
-        <div class="job-post">
-            <h2>Marketing Intern</h2>
-            <p><strong>Company:</strong> ABC Marketing</p>
-            <p><strong>Location:</strong> Los Angeles, CA</p>
-            <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fermentum felis. Nulla facilisi. Duis non sem auctor, tempus elit id, ultricies tortor.</p>
-            <p><strong>Requirements:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fermentum felis. Nulla facilisi.</p>
-            <p><strong>Contact:</strong> Jane Smith (jane.smith@example.com)</p>
-            <button class="apply-button">Apply</button>
-        </div>
-      </div>
-
-</div>
+  
+  </div>
 
 <div class="footer">
   &copy; 2024 Copyright: SDC PSG iTech

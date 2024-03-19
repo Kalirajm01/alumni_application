@@ -211,12 +211,22 @@ app.set('faculty', path.join(__dirname, './views/faculty'));
 app.set('alumni', path.join(__dirname, './views/alumni'));
 app.set('pages', path.join(__dirname, './views/pages'));
 
-// MySQL connection configuration
+// MySQL Connection
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   database: 'alumni'
 });
+
+// Connect to MySQL
+connection.connect((err) => {
+  if (err) {
+      console.error('Error connecting to MySQL: ' + err.stack);
+      return;
+  }
+  console.log('Connected to MySQL as id ' + connection.threadId);
+});
+
 
 // Initialize MySQL connection pool
 const connection1 = mysql.createPool({
@@ -294,56 +304,51 @@ app.get('/', (req, res) => {
 
 // Signin route
 app.post('/signin', (req, res) => {
-    const { username, password } = req.body;
+  const { username, password } = req.body;
 
-    const sql = 'SELECT * FROM users WHERE username = ?';
-    connection.query(sql, [username], (err, results) => {
-        if (err) {
-            console.error('Error logging in:', err);
-            return res.status(500).send('Internal server error');
-        }
+  // Query the database to find the user by username
+  const sql = 'SELECT * FROM users WHERE username = ?';
+  connection.query(sql, [username], (err, results) => {
+    if (err) {
+      console.error('Error logging in:', err);
+      return res.status(500).send('Internal server error');
+    }
 
-        if (results.length === 0) {
-            return res.status(404).send('User not found');
-        }
+    // Check if user exists
+    if (results.length === 0) {
+      return res.status(404).send('User not found');
+    }
 
-        const user = results[0];
+    const user = results[0];
 
-        // Compare hashed password
-        bcrypt.compare(password, user.password, (err, result) => {
-            if (err) {
-                console.error('Error comparing passwords:', err);
-                return res.status(500).send('Internal server error');
-            }
+    // Check if password is correct
+    if (user.password !== password) {
+      return res.status(401).send('Invalid password');
+    }
 
-            if (!result) {
-                return res.status(401).send('Invalid password');
-            }
-
-            // Redirect to the corresponding user page and pass the username
-            switch (user.role) {
-                case 'student':
-                    res.render('student/student', { username: username });
-                    break;
-                case 'alumni':
-                    res.render('alumni/alumni', { username: username });
-                    break;
-                case 'faculty':
-                    res.render('faculty/faculty', { username: username });
-                    break;
-                case 'admin':
-                    res.render('admin/admin', { username: username });
-                    break;
-                case 'executive':
-                    res.render('executive/executive', { username: username });
-                    break;
-                default:
-                    res.redirect('/');
-                    break;
-            }
-        });
-    });
-});
+    // Redirect to the corresponding user page and pass the username
+    switch (user.role) {
+      case 'student':
+        res.render('student/student', { username: username });
+        break;
+      case 'alumni':
+        res.render('alumni/alumni', { username: username });
+        break;
+      case 'faculty':
+        res.render('faculty/faculty', { username: username });
+        break;
+      case 'admin':
+        res.render('admin/admin', { username: username });
+        break;
+      case 'executive':
+          res.render('executive/executive', { username: username });
+          break;
+      default:
+        res.redirect('/');
+        break;
+    }
+  });
+}); 
 
 //Forget Password Page route
 app.get('/forget', (req, res) => {
@@ -463,7 +468,7 @@ app.get('/eventsreq', (req, res) => {
 const upload = multer({ dest: 'uploads/' });
 app.post('/submit-form', upload.single('eventImage'), (req, res) => {
   const { eventName, eventLocation, eventDate, eventTime, department, contactDetails, description } = req.body;
-  const eventImage = req.file.filename; // Multer renames the file and adds a "filename" property
+  const eventImage = req.file.filename;
 
   // Insert form data into MySQL
   const sql = 'INSERT INTO events (eventName, eventLocation, eventDate, eventTime, department, contactDetails, description, eventImage) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
@@ -574,7 +579,6 @@ app.post('/jobs-form', async (req, res) => {
   }
 });
 
-
 // Events Page route
 app.get('/events', (req, res) => {
   res.render('pages/events');
@@ -594,32 +598,6 @@ app.get('/gallery', (req, res) => {
 app.get('/scholarship', (req, res) => {
   res.render('student/scholarship');
 });
-
-// Jobs/Internships Page route
-app.get('/jobs', (req, res) => {
-  res.render('pages/jobs');
-});
-app.get('/jobs', async (req, res) => {
-  try {
-    const connection = await mysql.createConnection(dbConfig);
-    const [jobs] = await connection.query('SELECT * FROM jobs_internships');
-    await connection.end();
-
-    if (!jobs || jobs.length === 0) {
-      console.error('No jobs found');
-      return res.status(404).send('No jobs found');
-    }
-
-    res.render('pages/jobs', { jobs }); // Pass jobs to the template
-  } catch (error) {
-    console.error('Error fetching jobs:', error);
-    res.status(500).send('Internal Server Error');
-  }
-});
-
-
-
-
 
 // About Page route
 app.get('/about', (req, res) => {
@@ -650,3 +628,51 @@ app.get('/control', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+// Define routes
+// Jobs/Internships Page route
+app.get('/jobs', (req, res) => {
+  connection.query('SELECT * FROM post', (error, results, fields) => {
+      if (error) {
+          console.error('Error executing MySQL query:', error);
+          res.status(500).send('Internal Server Error');
+          return;
+      }
+      // Render EJS template with data
+      res.render('pages/jobs', { data: results });
+  });
+});
+
+app.get('/jobs-interns-form', (req, res) => {
+  res.render('alumni/post');
+});
+
+// Route to handle form submission
+app.post('/submit', (req, res) => {
+  const { title, typeofpost, companyname, location, descriptions, requirement, department, contact, apply_by } = req.body;
+
+  // Insert data into MySQL
+  const sql = 'INSERT INTO post (title, typeofpost, companyname, location, descriptions, requirement, department, contact, apply_by) VALUES (?,?,?,?,?, ?, ?,?,?)';
+  connection.query(sql, [title, typeofpost, companyname, location, descriptions, requirement, department, contact, apply_by], (error, results, fields) => {
+      if (error) {
+          console.error('Error executing MySQL query:', error);
+          res.status(500).send('Internal Server Error');
+          return;
+      }
+      res.send('Successfully Posted!!');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
