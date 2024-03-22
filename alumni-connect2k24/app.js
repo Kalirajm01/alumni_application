@@ -445,7 +445,7 @@ app.get('/facultybroadcast', (req, res) => {
 });
 
 // Admin Event Upload Page route
-app.get('/admineventsreq', (req, res) => {
+app.get('/admineventsreq', (req, res) =>  {
   res.render('admin/admineventsreq');
 });
 
@@ -598,6 +598,18 @@ app.get('/gallery', (req, res) => {
 app.get('/scholarship', (req, res) => {
   res.render('student/scholarship');
 });
+
+// Route for rendering map
+app.get('/map', (req, res) => {
+  // Pass location data to the view
+  const locations = [
+      { name: 'Location 1', lat: 40.7128, lng: -74.006 },
+      { name: 'Location 2', lat: 34.0522, lng: -118.243 },
+      { name: 'Location 3', lat: 51.5074, lng: -0.1278 }
+  ];
+  res.render('map', { locations });
+});
+
 
 // About Page route
 app.get('/about', (req, res) => {
