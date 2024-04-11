@@ -355,53 +355,53 @@ app.get('/forget', (req, res) => {
   res.render('forget');
 });
 
-// //Signup Page route
-// app.get('/signup', (req, res) => {
-//   res.render('signup');
-// });
-
-// // Signup route
-// app.post('/signup', (req, res) => {
-//     // Extract signup data from request body
-//     const { username, email, password, phone, role } = req.body;
-  
-//     // Insert the signup data into MySQL database
-//     const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
-//     connection.query(sql, [username, email, password, phone, role], (err, result) => {
-//       if (err) {
-//         console.error('Error signing up:', err);
-//         return res.status(500).send('Internal server error');
-//       }
-//       console.log('User signed up successfully');
-//       // Redirect to the signin page
-//       res.redirect('/');
-//     });
-//   });
-
+//Signup Page route
 app.get('/signup', (req, res) => {
   res.render('signup');
 });
 
 // Signup route
 app.post('/signup', (req, res) => {
+    // Extract signup data from request body
     const { username, email, password, phone, role } = req.body;
-    bcrypt.hash(password, 10, (err, hash) => {
-        if (err) {
-            console.error('Error hashing password:', err);
-            return res.status(500).send('Internal server error');
-        }
-
-        const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
-        connection.query(sql, [username, email, hash, phone, role], (err, result) => {
-            if (err) {
-                console.error('Error signing up:', err);
-                return res.status(500).send('Internal server error');
-            }
-            console.log('User signed up successfully');
-            res.redirect('/');
-        });
+  
+    // Insert the signup data into MySQL database
+    const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
+    connection.query(sql, [username, email, password, phone, role], (err, result) => {
+      if (err) {
+        console.error('Error signing up:', err);
+        return res.status(500).send('Internal server error');
+      }
+      console.log('User signed up successfully');
+      // Redirect to the signin page
+      res.redirect('/');
     });
-});
+  });
+
+// app.get('/signup', (req, res) => {
+//   res.render('signup');
+// });
+
+// // Signup route
+// app.post('/signup', (req, res) => {
+//     const { username, email, password, phone, role } = req.body;
+//     bcrypt.hash(password, 10, (err, hash) => {
+//         if (err) {
+//             console.error('Error hashing password:', err);
+//             return res.status(500).send('Internal server error');
+//         }
+
+//         const sql = 'INSERT INTO users (username, email, password, phone, role) VALUES (?, ?, ?, ?, ?)';
+//         connection.query(sql, [username, email, hash, phone, role], (err, result) => {
+//             if (err) {
+//                 console.error('Error signing up:', err);
+//                 return res.status(500).send('Internal server error');
+//             }
+//             console.log('User signed up successfully');
+//             res.redirect('/');
+//         });
+//     });
+// });
 
 
 //DevOps Page route
