@@ -11,38 +11,33 @@
     <%- include('header/navbar.ejs') %>
     <div class="content">
         <h2>Broadcast</h2>
-        <div class="form">
-        <div class="input-group">
-            <label for="fromInput">From:</label>
-            <input type="text" id="fromInput" placeholder="Your name">
-        </div>
-        <div class="input-group">
-            <label for="role"><strong>To</strong></label>
-            <select id="role" name="role" required>
-              <option style="color: black;" value="student">Student</option>
-              <option style="color: black;" value="alumni">Alumni</option>
-              <option style="color: black;" value="faculty">Faculty</option>
-            </select>
-          </div>
-        <div class="input-group">
-            <label for="messageInput">Message:</label>
-            <textarea id="messageInput" placeholder="Type your message..."></textarea>
-        </div>
-        <div class="buttons">
-            <a href="https://wa.me/?text=Test%20from%20PSG%20iTech%20Alumni%20Connect" class="whatsapp">Send via WhatsApp</a>
-            <a href="mailto:?subject=Test%20from%20PSG%20iTech%20Alumni%20Connect&body=Test%20from%20PSG%20iTech%20Alumni%20Connect" class="email">Send via Email</a>
-        </div>
-        <br>
-        <button class="button" onclick="broadcastMessage()">Broadcast</button>
-        <div id="messageDisplay"></div>
-    </div>
+        <form action="/abroadcast-message" method="post" class="form">
+            <div class="input-group">
+                <label for="fromInput">From:</label>
+                <input type="text" id="fromInput" name="fromInput" placeholder="Your name" required>
+            </div>
+            <div class="input-group">
+                <label for="role"><strong>To:</strong></label>
+                <select id="role" name="role" required>
+                    <option style="color: black;" value="student">Student</option>
+                    <option style="color: black;" value="alumni">Alumni</option>
+                    <option style="color: black;" value="faculty">Faculty</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="messageInput">Message:</label>
+                <textarea id="messageInput" name="messageInput" placeholder="Type your message..."></textarea>
+            </div>
+            <br>
+            <button type="submit" class="button">Broadcast</button>
+            <div id="messageDisplay"></div>
+        </form>
 </div>
 <div class="footer">
     &copy; 2024 Copyright: SDC PSG iTech
     <br>
     <a style="color: blue; font-size: 16px;; font-weight: bold;" href="/devops">DevOps Team</a>
   </div>
-    <script src="js/broadcast.js"></script>
 </body>
 </html>
 
@@ -59,41 +54,5 @@
 
     displayMessage(from, message);
 }
-
-function broadcastMessage() {
-    const from = document.getElementById('fromInput').value;
-    const role = document.getElementById('role').value;
-    const message = document.getElementById('messageInput').value;
-
-    // Perform validation and error handling as needed
-
-    // Send message via Twilio's WhatsApp API
-    const url = 'https://conversations.twilio.com/v1/Conversations/CH32205a380ef94119b23bea7382396300/Messages';
-    const data = {  
-        from: from,
-        role: role,
-        message: message
-    };
-
-    // Perform a POST request to your backend API endpoint
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Handle success response
-        document.getElementById('messageDisplay').innerText = data.message;
-    })
-    .catch(error => {
-        // Handle error
-        console.error('Error:', error);
-        document.getElementById('messageDisplay').innerText = 'An error occurred while broadcasting the message.';
-    });
-}
-
 
 </script>

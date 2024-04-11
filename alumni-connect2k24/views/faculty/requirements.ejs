@@ -12,17 +12,18 @@
     <div class="container">
       <div class="event-form">
         <h2>Requirements Request Form</h2>
-        <form action="#" method="post">
+        <form action="/send-email" method="post">
           <div class="form-group">
-            <label for="requester-name">Requester Name:</label>
-            <input type="text" id="requester-name" name="requester-name" required>
+            <label for="requesterName">Requester Name:</label>
+            <input type="text" id="requesterName" name="requesterName" required>
           </div>
   
           <div class="form-group">
-            <label for="event-type">Event Type:</label>
+            <label for="eventType">Event Type:</label>
             <div class="dropdown">
-              <select id="event-type" name="event-type" class="dropdown-select" required>
+              <select id="eventType" name="eventType" class="dropdown-select" required>
                 <option value="" disabled selected>Select Event Type</option>
+                <option value="All">All Departments</option>
                 <option value="Conference">Conference</option>
                 <option value="Workshop">Workshop</option>
                 <option value="Seminar">Seminar</option>
@@ -64,13 +65,13 @@
           </div>
   
           <div class="form-group">
-            <label for="student-count">Audience Count:</label>
-            <input type="number" id="student-count" name="student-count" required>
+            <label for="studentCount">Audience Count:</label>
+            <input type="number" id="studentCount" name="studentCount" required>
           </div>
   
           <div class="form-group">
-            <label for="contact-details">Contact Details:</label>
-            <input type="text" id="contact-details" name="contact-details" required>
+            <label for="contactDetails">Contact Details:</label>
+            <input type="text" id="contactDetails" name="contactDetails" required>
           </div>
   
           <div class="form-group">

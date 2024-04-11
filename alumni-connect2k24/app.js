@@ -678,13 +678,378 @@ app.post('/submit', (req, res) => {
 });
 
 
+// Nodemailer transporter configuration
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "alumnitest2024@gmail.com",
+    pass: "fzzo bava mtup jhde",
+  },
+});
 
 
+//Faculty Requirements Upload
+// Route to handle form submission and send emails
+app.post('/send-email', (req, res) => {
+  const { requesterName, eventType, otherEventType, date, duration, department, studentCount, contactDetails, description } = req.body;
+
+  // Compose the email message
+  const message = `
+      Requester Name: ${requesterName}
+      Event Type: ${eventType === 'Other' ? otherEventType : eventType}
+      Date: ${date}
+      Duration: ${duration}
+      Department: ${department}
+      Audience Count: ${studentCount}
+      Contact Details: ${contactDetails}
+      Description: ${description}
+  `;
+    // Compose the HTML email message
+const htmlMessage = `
+<div style="font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px;">
+    <div style="background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #007bff;">New Requirements Request Details</h2>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Requester Name:</p>
+            <p>${requesterName}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Event Type:</p>
+            <p>${eventType === 'Other' ? otherEventType : eventType}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Date:</p>
+            <p>${date}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Duration:</p>
+            <p>${duration}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Department:</p>
+            <p>${department}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Audience Count:</p>
+            <p>${studentCount}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Contact Details:</p>
+            <p>${contactDetails}</p>
+        </div>
+        <div>
+            <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>
+            <p>${description}</p>
+        </div>
+    </div>
+</div>
+`;
+
+  // Specify the recipients' email addresses
+  const recipients = ['kalirajm01@gmail.com', 'd22z605@psgitech.ac.in'];
+
+  // Send email to each recipient
+  recipients.forEach(recipient => {
+      const mailOptions = {
+          from: 'alumnitest2024@gmail.com',
+          to: recipient,
+          subject: 'New Event Request',
+          text: message,
+          html: htmlMessage
+      };
+
+      transporter.sendMail(mailOptions, (err, info) => {
+          if (err) {
+              console.error('Error sending email:', err);
+          } else {
+              console.log('Email sent:', info.response);
+          }
+      });
+  });
+
+  res.redirect('/reuirements'); // Redirect to home page or a confirmation page
+});
 
 
+//Admin Requirements Upload
+// Route to handle form submission and send emails
+app.post('/asend-email', (req, res) => {
+  const { requesterName, eventType, otherEventType, date, duration, department, studentCount, contactDetails, description } = req.body;
+
+  // Compose the email message
+  const message = `
+      Requester Name: ${requesterName}
+      Event Type: ${eventType === 'Other' ? otherEventType : eventType}
+      Date: ${date}
+      Duration: ${duration}
+      Department: ${department}
+      Audience Count: ${studentCount}
+      Contact Details: ${contactDetails}
+      Description: ${description}
+  `;
+  
+  // Compose the HTML email message
+const htmlMessage = `
+<div style="font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px;">
+    <div style="background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #007bff;">New Requirements Request Details</h2>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Requester Name:</p>
+            <p>${requesterName}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Event Type:</p>
+            <p>${eventType === 'Other' ? otherEventType : eventType}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Date:</p>
+            <p>${date}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Duration:</p>
+            <p>${duration}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Department:</p>
+            <p>${department}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Audience Count:</p>
+            <p>${studentCount}</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 5px;">Contact Details:</p>
+            <p>${contactDetails}</p>
+        </div>
+        <div>
+            <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>
+            <p>${description}</p>
+        </div>
+    </div>
+</div>
+`;
+
+  // Specify the recipients' email addresses
+  const recipients = ['kalirajm01@gmail.com', 'd22z605@psgitech.ac.in'];
+
+  // Send email to each recipient
+  recipients.forEach(recipient => {
+      const mailOptions = {
+          from: 'alumnitest2024@gmail.com',
+          to: recipient,
+          subject: 'New Requirement from PSG ITAR',
+          text: message,
+          html: htmlMessage
+      };
+
+      transporter.sendMail(mailOptions, (err, info) => {
+          if (err) {
+              console.error('Error sending email:', err);
+          } else {
+              console.log('Email sent:', info.response);
+          }
+      });
+  });
+
+  res.redirect('/adminrequirements'); // Redirect to home page or a confirmation page
+});
+
+const roleEmailMap = {
+  student: ['kalirajm01@gmail.com', 'd22z701@psgitech.ac.in'],
+  alumni: ['alumnitest2024@gmail.com', '21z153@psgitech.ac.in'],
+  faculty: ['d22z605@psgitech.ac.in']
+};
 
 
+//Executive Broadcast
+// Route to handle form submission and send emails
+app.post('/ebroadcast-message', (req, res) => {
+  const { fromInput, role, messageInput } = req.body;
+
+  // Compose the email message
+  const message = `
+      From Name: ${fromInput}
+      Message: ${messageInput}
+  `;
+
+  const htmlMessage = `
+  <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+      <div style="background-color: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <h2 style="color: #333333;">PSG iTech Alumni Association</h2>
+          <p><strong>Wished by:</strong> ${fromInput}</p>
+          <p><strong>Message:</strong></p>
+          <p>${messageInput}</p>
+      </div>
+  </div>
+`;
+
+  // Get the recipients based on the selected role
+  const recipients = roleEmailMap[role];
+
+  if (!recipients) {
+      console.error('Invalid role selected');
+      return res.status(400).send('Invalid role selected');
+  }
+
+  // Send email to each recipient
+  recipients.forEach(recipient => {
+      const mailOptions = {
+          from: 'alumnitest2024@gmail.com',
+          to: recipient,
+          subject: 'New Broadcast has been created',
+          text: message,
+          html: htmlMessage
+      };
+
+      transporter.sendMail(mailOptions, (err, info) => {
+          if (err) {
+              console.error('Error sending email:', err);
+          } else {
+              console.log('Email sent:', info.response);
+          }
+      });
+  });
+
+  res.redirect('/executivebroadcast'); // Redirect to home page or a confirmation page
+});
 
 
+//Admin Broadcast
+// Route to handle form submission and send emails
+app.post('/abroadcast-message', (req, res) => {
+  const { fromInput, role, messageInput } = req.body;
+
+  // Compose the email message
+  const message = `
+      From Name: ${fromInput}
+      Message: ${messageInput}
+  `;
+
+  const htmlMessage = `
+  <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
+      <div style="background-color: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <h2 style="color: #333333;">PSG iTech Alumni Association</h2>
+          <p><strong>Wished by:</strong> ${fromInput}</p>
+          <p><strong>Message:</strong></p>
+          <p>${messageInput}</p>
+      </div>
+  </div>
+`;
+
+  // Get the recipients based on the selected role
+  const recipients = roleEmailMap[role];
+
+  if (!recipients) {
+      console.error('Invalid role selected');
+      return res.status(400).send('Invalid role selected');
+  }
+
+  // Send email to each recipient
+  recipients.forEach(recipient => {
+      const mailOptions = {
+          from: 'alumnitest2024@gmail.com',
+          to: recipient,
+          subject: 'New Broadcast has been created',
+          text: message,
+          html: htmlMessage
+      };
+
+      transporter.sendMail(mailOptions, (err, info) => {
+          if (err) {
+              console.error('Error sending email:', err);
+          } else {
+              console.log('Email sent:', info.response);
+          }
+      });
+  });
+
+  res.redirect('/alumnibroadcast'); // Redirect to home page or a confirmation page
+});
 
 
+//Scholarship Submission
+// Route to handle form submission and send emails
+app.post('/email-scholarship', (req, res) => {
+  // const { requesterName, eventType, otherEventType, date, duration, department, studentCount, contactDetails, description } = req.body;
+
+  // Compose the email message
+  // const message = `
+  //     Requester Name: ${requesterName}
+  //     Event Type: ${eventType === 'Other' ? otherEventType : eventType}
+  //     Date: ${date}
+  //     Duration: ${duration}
+  //     Department: ${department}
+  //     Audience Count: ${studentCount}
+  //     Contact Details: ${contactDetails}
+  //     Description: ${description}
+  // `;
+
+  
+    // Compose the HTML email message
+// const htmlMessage = `
+// <div style="font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px;">
+//     <div style="background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+//         <h2 style="color: #007bff;">New Requirements Request Details</h2>
+//         <div style="margin-bottom: 20px;">
+//             <p style="font-weight: bold; margin-bottom: 5px;">Requester Name:</p>
+//             <p>${requesterName}</p>
+//         </div>
+//         <div style="margin-bottom: 20px;">
+//             <p style="font-weight: bold; margin-bottom: 5px;">Event Type:</p>
+//             <p>${eventType === 'Other' ? otherEventType : eventType}</p>
+//         </div>
+//         <div style="margin-bottom: 20px;">
+//             <p style="font-weight: bold; margin-bottom: 5px;">Date:</p>
+//             <p>${date}</p>
+//         </div>
+//         <div style="margin-bottom: 20px;">
+//             <p style="font-weight: bold; margin-bottom: 5px;">Duration:</p>
+//             <p>${duration}</p>
+//         </div>
+//         <div style="margin-bottom: 20px;">
+//             <p style="font-weight: bold; margin-bottom: 5px;">Department:</p>
+//             <p>${department}</p>
+//         </div>
+//         <div style="margin-bottom: 20px;">
+//             <p style="font-weight: bold; margin-bottom: 5px;">Audience Count:</p>
+//             <p>${studentCount}</p>
+//         </div>
+//         <div style="margin-bottom: 20px;">
+//             <p style="font-weight: bold; margin-bottom: 5px;">Contact Details:</p>
+//             <p>${contactDetails}</p>
+//         </div>
+//         <div>
+//             <p style="font-weight: bold; margin-bottom: 5px;">Description:</p>
+//             <p>${description}</p>
+//         </div>
+//     </div>
+// </div>
+// `;
+
+  // Specify the recipients' email addresses
+  const recipients = ['d22z605@psgitech.ac.in'];
+
+  // Send email to each recipient
+  recipients.forEach(recipient => {
+      const mailOptions = {
+          from: 'alumnitest2024@gmail.com',
+          to: recipient,
+          subject: 'New Scholarship Applied',
+          text: "message",
+          // html: htmlMessage
+      };
+
+      transporter.sendMail(mailOptions, (err, info) => {
+          if (err) {
+              console.error('Error sending email:', err);
+          } else {
+              console.log('Email sent:', info.response);
+          }
+      });
+  });
+
+  res.redirect('/scholarship'); // Redirect to home page or a confirmation page
+});

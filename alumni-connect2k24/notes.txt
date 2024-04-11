@@ -11,3 +11,6 @@ sudo service mysql restart
 sudo systemctl restart mysql.service
 
 Alumni1234
+
+nodemailer:
+password: fzzo bava mtup jhde

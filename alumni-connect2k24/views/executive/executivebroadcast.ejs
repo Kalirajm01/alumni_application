@@ -11,30 +11,27 @@
     <%- include('header/navbar.ejs') %>
     <div class="content">
         <h2>Broadcast</h2>
-        <div class="form">
-        <div class="input-group">
-            <label for="fromInput">From:</label>
-            <input type="text" id="fromInput" placeholder="Your name">
-        </div>
-        <div class="input-group">
-            <label for="role"><strong>To</strong></label>
-            <select id="role" name="role" required>
-              <option style="color: black;" value="student">Student</option>
-              <option style="color: black;" value="alumni">Alumni</option>
-              <option style="color: black;" value="faculty">Faculty</option>
-            </select>
-          </div>
-        <div class="input-group">
-            <label for="messageInput">Message:</label>
-            <textarea id="messageInput" placeholder="Type your message..."></textarea>
-        </div>
-        <div class="buttons">
-            <a href="https://wa.me/?text=Test%20from%20PSG%20iTech%20Alumni%20Connect" class="whatsapp">Send via WhatsApp</a>
-            <a href="mailto:?subject=Test%20from%20PSG%20iTech%20Alumni%20Connect&body=Test%20from%20PSG%20iTech%20Alumni%20Connect" class="email">Send via Email</a>
-        </div>
-        <br>
-        <button class="button" onclick="broadcastMessage()">Broadcast</button>
-        <div id="messageDisplay"></div>
+       <form action="/broadcast-message" method="post" class="form">
+    <div class="input-group">
+        <label for="fromInput">From:</label>
+        <input type="text" id="fromInput" name="fromInput" placeholder="Your name" required>
+    </div>
+    <div class="input-group">
+        <label for="role"><strong>To:</strong></label>
+        <select id="role" name="role" required>
+            <option style="color: black;" value="student">Student</option>
+            <option style="color: black;" value="alumni">Alumni</option>
+            <option style="color: black;" value="faculty">Faculty</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label for="messageInput">Message:</label>
+        <textarea id="messageInput" name="messageInput" placeholder="Type your message..."></textarea>
+    </div>
+    <br>
+    <button type="submit" class="button">Broadcast</button>
+    <div id="messageDisplay"></div>
+</form>
     </div>
 </div>
 <div class="footer">
@@ -42,7 +39,6 @@
     <br>
     <a style="color: blue; font-size: 16px;; font-weight: bold;" href="/devops">DevOps Team</a>
   </div>
-    <script src="js/broadcast.js"></script>
 </body>
 </html>
 
