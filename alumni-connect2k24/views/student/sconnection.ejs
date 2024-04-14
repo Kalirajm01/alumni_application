@@ -10,25 +10,30 @@
 <body>
     <%- include('header/header.ejs') %>
     <div class="filter">
-        <label for="filter">Filter by:</label>
-        <select id="filter">
+      <label for="filter">Filter by:</label>
+      <select id="filterRole" onchange="filterUsers()">
           <option value="all">All</option>
-          <option value="connections">Connections</option>
-          <option value="people">People</option>
-          <option value="companies">Companies</option>
-          <!-- Add more filter options as needed -->
-        </select>
-        <input type="text" id="search" placeholder="Search...">
-      </div>
-    
-      <div class="profile-card">
-        <img src="img/download.png" alt="Profile Image" class="profile-image">
-        <div class="profile-details">
-          <h2 class="name">Sample</h2>
-          <p class="position">Software Engineer</p>
-          <button class="connect-button">Connect</button>
-        </div>
-      </div>
+          <option value="admin">Admin</option>
+          <option value="alumni">Alumni</option>
+          <option value="executive">Executive</option>
+          <option value="student">Student</option>
+      </select>
+      <input type="text" id="search" placeholder="Search..." oninput="filterUsers()">
+  </div>
+  
+  <div id="userList">
+      <% users.forEach(user => { %>
+          <div class="profile-card" data-role="<%= user.role %>" data-name="<%= user.username %>">
+              <img src="<%= user.profile_image || 'default_profile.png' %>" alt="Profile Image" class="profile-image">
+              <div class="profile-details">
+                  <h2 class="name"><%= user.username %></h2>
+                  <p class="position"><%= user.role %></p>
+                  <button class="connect-button">Connect</button>
+              </div>
+          </div>
+      <% }) %>
+  </div>
+  
 
 <div class="footer">
     &copy; 2024 Copyright: SDC PSG iTech
@@ -38,3 +43,48 @@
 
 </body>
 </html>
+
+
+<script>
+  function searchUsers() {
+    const filter = document.getElementById('filter').value.toLowerCase();
+    const searchInput = document.getElementById('search').value.toLowerCase();
+    const userList = document.getElementById('userList');
+    const profileCards = userList.getElementsByClassName('profile-card');
+
+    for (let card of profileCards) {
+        const username = card.querySelector('.name').innerText.toLowerCase();
+        const role = card.querySelector('.position').innerText.toLowerCase();
+
+        if ((filter === 'all' || filter === 'people' && role === 'student' || filter === role) &&
+            (username.includes(searchInput) || role.includes(searchInput))) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    }
+}
+
+function filterUsers() {
+    const filterRole = document.getElementById('filterRole').value.toLowerCase();
+    const filterName = document.getElementById('search').value.toLowerCase();
+
+    const profileCards = document.querySelectorAll('.profile-card');
+
+    profileCards.forEach(card => {
+        const role = card.dataset.role.toLowerCase();
+        const name = card.dataset.name.toLowerCase();
+
+        const roleMatch = filterRole === 'all' || role === filterRole;
+        const nameMatch = name.includes(filterName);
+
+        if (roleMatch && nameMatch) {
+            card.style.display = 'block'; 
+        } else {
+            card.style.display = 'none'; 
+        }
+    });
+}
+
+
+</script>

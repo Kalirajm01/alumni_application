@@ -420,10 +420,26 @@ app.get('/schat', (req, res) => {
 });
 
 // Student Connection Page route
+// Route to render the sconnection page
 app.get('/sconnection', (req, res) => {
-  res.render('student/sconnection');
+  // Fetch all users from the database
+  connection.query('SELECT * FROM users', (err, results) => {
+      if (err) {
+          console.error('Error fetching users:', err);
+          res.status(500).send('Internal Server Error');
+      } else {
+          // Modify the user data to use a default icon if profile_image is empty
+          const users = results.map(user => {
+              if (!user.profile_image) {
+                  user.profile_image = 'img/download.png'; // Replace '/default-icon.png' with your default icon URL
+              }
+              return user;
+          });
+          // Render the sconnection page and pass the modified users data to the template
+          res.render('student/sconnection', { users });
+      }
+  });
 });
-
 
 // Route to render the Student to Alumni chat page
 app.get('/chat', (req, res) => {
@@ -571,7 +587,6 @@ app.get('/fund', (req, res) => {
   res.render('alumni/scholarshipfund');
 });
 
-
 // Alumni to Student Chat Page route
 // Route to render the Alumni to Student chat page
 app.get('/alumnichat', (req, res) => {
@@ -599,7 +614,6 @@ app.post('/send1-message', (req, res) => {
       }
   });
 });
-
 
 // Alumni Connection Page route
 app.get('/aconnection', (req, res) => {
