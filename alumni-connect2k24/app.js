@@ -424,14 +424,62 @@ app.get('/sconnection', (req, res) => {
   res.render('student/sconnection');
 });
 
-// Student to Student Chat Page route
+
+// Route to render the Student to Alumni chat page
 app.get('/chat', (req, res) => {
-  res.render('student/studentchat');
+  connection.query('SELECT * FROM messages', (err, results) => {
+      if (err) {
+          console.error('Error fetching messages:', err);
+          res.status(500).send('Internal Server Error');
+      } else {
+          res.render('student/studentchat.ejs', { messages: results });
+      }
+  });
 });
 
+// Route to handle form submission and store messages in MySQL
+app.post('/send-message', (req, res) => {
+  const { message, filterBatch, filterDepartment } = req.body;
+  const sql = 'INSERT INTO messages (sender, content, timestamp, batch, department) VALUES (?, ?, NOW(), ?, ?)';
+  connection.query(sql, ['student', message, filterBatch, filterDepartment], (err, result) => {
+      if (err) {
+          console.error('Error storing message:', err);
+          res.status(500).send('Internal Server Error');
+      } else {
+          console.log('Message stored successfully');
+          res.redirect('/chat');
+      }
+  });
+});
+
+
+
 // Student to Alumni Chat Page route
+// Route to render the Student to Student chat page
 app.get('/achat', (req, res) => {
-  res.render('student/achat');
+  connection.query('SELECT * FROM studentmessages', (err, results) => {
+      if (err) {
+          console.error('Error fetching messages:', err);
+          res.status(500).send('Internal Server Error');
+      } else {
+          res.render('student/achat.ejs', { messages: results });
+      }
+  });
+});
+
+// Route to handle form submission and store messages in MySQL
+app.post('/student-message', (req, res) => {
+  const { message, filterBatch, filterDepartment } = req.body;
+  const sql = 'INSERT INTO studentmessages (sender, content, timestamp, batch, department) VALUES (?, ?, NOW(), ?, ?)';
+  connection.query(sql, ['student', message, filterBatch, filterDepartment], (err, result) => {
+      if (err) {
+          console.error('Error storing message:', err);
+          res.status(500).send('Internal Server Error');
+      } else {
+          console.log('Message stored successfully');
+          res.redirect('/achat');
+      }
+  });
 });
 
 // Student Broadcast Page route
@@ -523,24 +571,39 @@ app.get('/fund', (req, res) => {
   res.render('alumni/scholarshipfund');
 });
 
-// Alumni Chat Split Page route
-app.get('/aschat', (req, res) => {
-  res.render('alumni/aschat');
+
+// Alumni to Student Chat Page route
+// Route to render the Alumni to Student chat page
+app.get('/alumnichat', (req, res) => {
+  connection.query('SELECT * FROM messages', (err, results) => {
+      if (err) {
+          console.error('Error fetching messages:', err);
+          res.status(500).send('Internal Server Error');
+      } else {
+          res.render('alumni/alumnichat.ejs', { messages: results });
+      }
+  });
 });
 
-// Alumni to Alumni Chat Page route
-app.get('/alumnichat', (req, res) => {
-  res.render('alumni/alumnichat');
+// Route to handle form submission and store messages in MySQL
+app.post('/send1-message', (req, res) => {
+  const { message, filterBatch, filterDepartment } = req.body;
+  const sql = 'INSERT INTO messages (sender, content, timestamp, batch, department) VALUES (?, ?, NOW(), ?, ?)';
+  connection.query(sql, ['Alumni', message, filterBatch, filterDepartment], (err, result) => {
+      if (err) {
+          console.error('Error storing message:', err);
+          res.status(500).send('Internal Server Error');
+      } else {
+          console.log('Message stored successfully');
+          res.redirect('/alumnichat');
+      }
+  });
 });
+
 
 // Alumni Connection Page route
 app.get('/aconnection', (req, res) => {
   res.render('alumni/aconnection');
-});
-
-// Alumni to Student Chat Page route
-app.get('/aachat', (req, res) => {
-  res.render('alumni/aachat');
 });
 
 // Alumni Internship/Jobs Posting Page route
