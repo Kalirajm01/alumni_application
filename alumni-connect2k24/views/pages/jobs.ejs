@@ -11,30 +11,94 @@
     <%- include('header/header.ejs') %>
     <div class="content">
       <div class="container">
-          <div class="job-post">
-                
-          <% data.forEach(item => { %>
-            <h1><%= item.title %></h1>
-            <p><strong>Company Name:</strong> <%= item.companyname %></p>
-            <p><strong>Job Type:</strong> <%= item.typeofpost %></p>
-            <p><strong>Location:</strong> <%= item.location %></p>
-            <p><strong>Requirements:</strong> <%= item.requirement %></p>
-            <p><strong>Descriptions:</strong> <%= item.descriptions %></p>
-            <p><strong>Department:</strong> <%= item.department %></p>
-            <p><strong>Last Date:</strong> <%= item.applybydate %></p>
-            <p><strong>Contact:</strong> <%= item.contact %></p>
-            <button class="apply-button" id="apply-button">Apply</button>
-        <% }); %>
+          <div class="job-posts">
+              <% data.forEach(item => { %>
+                  <div class="job-post">
+                      <h1><%= item.title %></h1>
+                      <p><strong>Company Name:</strong> <%= item.companyname %></p>
+                      <p><strong>Job Type:</strong> <%= item.typeofpost %></p>
+                      <p><strong>Location:</strong> <%= item.location %></p>
+                      <p><strong>Requirements:</strong> <%= item.requirement %></p>
+                      <p><strong>Description:</strong> <%= item.descriptions %></p>
+                      <p><strong>Department:</strong> <%= item.department %></p>
+                      <p><strong>Last Date:</strong> <%= item.applybydate %></p>
+                      <p><strong>Contact:</strong> <%= item.contact %></p>
+                      <button class="apply-button" data-id="<%= item.id %>" data-title="<%= item.title %> data-contact="<%= item.contact %>">Apply</button>
+                  </div>
+              <% }); %>
           </div>
-        </div>
-  
+      </div>
   </div>
+  
 
 <div class="footer">
   &copy; 2024 Copyright: SDC PSG iTech
   <br>
   <a style="color: blue; font-size: 16px;; font-weight: bold;" href="/devops">DevOps Team</a>
 </div>
+
+<script>
+  document.querySelectorAll('.apply-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const title = button.dataset.title;
+        // Send the title to the backend using an AJAX request or form submission
+        // Example AJAX request:
+        fetch('/apply', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: title })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Application submitted successfully');
+                // Optionally, display a success message to the user
+            } else {
+                console.error('Failed to submit application');
+            }
+        })
+        .catch(error => {
+            console.error('Error submitting application:', error);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const applyButtons = document.querySelectorAll('.apply-button');
+    applyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const jobId = button.dataset.id;
+            const contactEmail = button.dataset.contact;
+
+            fetch('/apply', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ jobId: jobId, contactEmail: contactEmail, title: title })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to apply');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log(data); 
+                const successMessage = document.createElement('p');
+                successMessage.textContent = 'Application submitted successfully';
+                successMessage.classList.add('success-message');
+                button.parentNode.appendChild(successMessage);
+            })
+            .catch(error => {
+                console.error('Error applying:', error);
+            });
+        });
+    });
+});
+
+</script>
 
 </body>
 </html>

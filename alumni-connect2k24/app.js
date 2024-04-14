@@ -420,22 +420,18 @@ app.get('/schat', (req, res) => {
 });
 
 // Student Connection Page route
-// Route to render the sconnection page
 app.get('/sconnection', (req, res) => {
-  // Fetch all users from the database
   connection.query('SELECT * FROM users', (err, results) => {
       if (err) {
           console.error('Error fetching users:', err);
           res.status(500).send('Internal Server Error');
       } else {
-          // Modify the user data to use a default icon if profile_image is empty
           const users = results.map(user => {
               if (!user.profile_image) {
-                  user.profile_image = 'img/download.png'; // Replace '/default-icon.png' with your default icon URL
+                  user.profile_image = 'img/download.png'; 
               }
               return user;
           });
-          // Render the sconnection page and pass the modified users data to the template
           res.render('student/sconnection', { users });
       }
   });
@@ -729,13 +725,29 @@ app.get('/jobs', (req, res) => {
           res.status(500).send('Internal Server Error');
           return;
       }
-      // Render EJS template with data
       res.render('pages/jobs', { data: results });
   });
 });
 
-app.get('/jobs-interns-form', (req, res) => {
-  res.render('alumni/post');
+
+app.post('/apply', (req, res) => {
+  const { title } = req.body;
+  const contactEmail = "kalirajm01@gmail.com";
+  const mailOptions = {
+      from: 'alumnitest2024@gmail.com',
+      to: contactEmail,
+      subject: 'New Job/Internship Application',
+      text: `A student has applied for the position "${title}". Please review and approve the application.`
+  };
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          console.error('Error sending email:', error);
+          res.status(500).send('Error sending email');
+      } else {
+          console.log('Email sent:', info.response);
+          res.status(200).send('Application submitted successfully');
+      }
+  });
 });
 
 // Route to handle form submission
