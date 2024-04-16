@@ -56,6 +56,15 @@ document.getElementById("signin-form").addEventListener("submit", function(event
   });
 
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const signinForm = document.getElementById('signin-form');
+  signinForm.addEventListener('submit', function(event) {
+    const username = document.getElementById('username').value;
+    localStorage.setItem('username', username);
+  });
+});
+</script>
 
 <!-- <!DOCTYPE html>
 <html>

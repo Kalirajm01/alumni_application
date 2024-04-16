@@ -13,7 +13,8 @@
 <div class="container">
     <div class="gradient-background"></div>
     <div class="text">
-      <h1>Welcome to <br> PSG iTech Alumni Association</h1>
+      <h1 id="usernameDisplay"></h1>
+      <h2>Welcome to PSG iTech Alumni Association</h2>
     </div>
 </div>
 <div class="heading">
@@ -99,6 +100,14 @@
 </html>
 
 <script>
+  // Retrieve username from local storage
+  document.addEventListener('DOMContentLoaded', function() {
+    const username = localStorage.getItem('username');
+    if (username) {
+      document.getElementById('usernameDisplay').textContent = `Hi, ${username}!`;
+    }
+  });
+
   function applyFilter() {
     const selectedCountry = document.getElementById('countryFilter').value;
 
