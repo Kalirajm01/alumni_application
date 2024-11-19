@@ -6,6 +6,10 @@
 - [Front-end](#Front-end)
 - [Back-end](#Back-end)
 
+
+![Alumini_Application_Flow](https://github.com/user-attachments/assets/c4ba2d96-531d-4ab1-a6c7-1c6f26011794)
+
+
 ## Prerequisites
 
 - Node.js 14.x or higher
