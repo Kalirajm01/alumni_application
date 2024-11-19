@@ -7,7 +7,7 @@
 - [Back-end](#Back-end)
 
 
-![Alumini_Application_Flow](https://github.com/user-attachments/assets/c4ba2d96-531d-4ab1-a6c7-1c6f26011794)
+![Alumini_Application_Flow  - Copy](https://github.com/user-attachments/assets/2cfa6a10-099e-48fb-8430-edfd930e6445)
 
 
 ## Prerequisites
